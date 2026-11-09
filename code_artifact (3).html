@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة عمر محمد وضاح | تدريب كلمات الإنجليزي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --bg-from: #0b1120;
+            --bg-to: #1e1b4b;
+            --border-color: rgba(99, 102, 241, 0.35);
+        }
+
+        [data-theme="indigo"] {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --bg-from: #0b1120;
+            --bg-to: #1e1b4b;
+            --border-color: rgba(99, 102, 241, 0.4);
+        }
+        [data-theme="emerald"] {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --bg-from: #071714;
+            --bg-to: #064e3b;
+            --border-color: rgba(16, 185, 129, 0.4);
+        }
+        [data-theme="amber"] {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --primary-light: #fbbf24;
+            --bg-from: #181106;
+            --bg-to: #451a03;
+            --border-color: rgba(245, 158, 11, 0.4);
+        }
+        [data-theme="rose"] {
+            --primary: #f43f5e;
+            --primary-dark: #e11d48;
+            --primary-light: #fb7185;
+            --bg-from: #19080d;
+            --bg-to: #4c0519;
+            --border-color: rgba(244, 63, 94, 0.4);
+        }
+        [data-theme="cyan"] {
+            --primary: #06b6d4;
+            --primary-dark: #0891b2;
+            --primary-light: #22d3ee;
+            --bg-from: #071318;
+            --bg-to: #083344;
+            --border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at top, var(--bg-to), var(--bg-from) 75%);
+            min-height: 100vh;
+            color: #f8fafc;
+            transition: background 0.4s ease;
+        }
+
+        .en-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .main-card {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1.5px solid var(--border-color);
+            box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        .theme-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transition: all 0.2s ease;
+        }
+        .theme-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .theme-text {
+            color: var(--primary-light);
+        }
+
+        .choice-btn {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1.5px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.15s ease;
+        }
+        .choice-btn:hover:not(:disabled) {
+            border-color: var(--primary-light);
+            background: rgba(51, 65, 85, 0.9);
+        }
+        .choice-correct {
+            background: rgba(16, 185, 129, 0.25) !important;
+            border-color: #10b981 !important;
+            color: #6ee7b7 !important;
+        }
+        .choice-wrong {
+            background: rgba(239, 68, 68, 0.25) !important;
+            border-color: #ef4444 !important;
+            color: #fca5a5 !important;
+        }
+    </style>
+</head>
+<body data-theme="indigo" class="p-4 sm:p-6 flex items-center justify-center min-h-screen">
+
+    <!-- المربع الرئيسي في المنتصف -->
+    <div class="w-full max-w-2xl my-auto">
+
+        <!-- =================================================================== -->
+        <!-- 1. الصفحة الرئيسية (تظهر أول ما يفتح الموقع) -->
+        <!-- =================================================================== -->
+        <section id="page-home" class="main-card rounded-3xl p-6 sm:p-8 text-center space-y-6">
+            
+            <!-- شريط الألوان العلوي البسيط -->
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-xs font-bold text-slate-400 ml-1">اللون:</span>
+                <button onclick="setTheme('indigo')" id="theme-indigo" class="w-6 h-6 rounded-full bg-indigo-500 ring-2 ring-white ring-offset-2 ring-offset-slate-900 transition"></button>
+                <button onclick="setTheme('emerald')" id="theme-emerald" class="w-6 h-6 rounded-full bg-emerald-500 transition"></button>
+                <button onclick="setTheme('amber')" id="theme-amber" class="w-6 h-6 rounded-full bg-amber-500 transition"></button>
+                <button onclick="setTheme('rose')" id="theme-rose" class="w-6 h-6 rounded-full bg-rose-500 transition"></button>
+                <button onclick="setTheme('cyan')" id="theme-cyan" class="w-6 h-6 rounded-full bg-cyan-500 transition"></button>
+            </div>
+
+            <!-- الاسم والدعاء -->
+            <div class="space-y-2 py-2 border-b border-slate-800">
+                <h1 class="text-2xl sm:text-3xl font-black text-white">
+                    إعداد: <span class="theme-text">عمر محمد وضاح</span>
+                </h1>
+                <p class="text-sm font-bold text-amber-300">
+                    🤍 لا تنسونا من صالح دعواتكم 🤍
+                </p>
+            </div>
+
+            <!-- أزرار الانتقال للصفحات المستقلة -->
+            <div class="space-y-3.5 text-right">
+                
+                <!-- الخيار الأول: تحدي آخر حرف -->
+                <button onclick="openPage('chain')" class="w-full p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-amber-500/40 hover:border-amber-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-lg sm:text-xl font-black text-white group-hover:text-amber-300 transition flex items-center gap-2">
+                            <span>🔥 تحدي آخر حرف</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400">
+                            تحدي كتابي ذكي: الكلمة ⬅ مرادفها ⬅ كلمة تبدأ بآخر حرف
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-amber-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+                <!-- الخيار الثاني: الاختبار الاعتيادي -->
+                <button onclick="openPage('quiz-setup')" class="w-full p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-emerald-500/40 hover:border-emerald-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-lg sm:text-xl font-black text-white group-hover:text-emerald-300 transition flex items-center gap-2">
+                            <span>🎯 الاختبار التدريبي الاعتيادي</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400">
+                            المستوى العادي (العمود A والترجمة) • المستوى المحترف (المرادفات A و B)
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-emerald-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+                <!-- الخيار الثالث: جدول الـ 50 كلمة والناطق -->
+                <button onclick="openPage('dictionary')" class="w-full p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-sky-500/40 hover:border-sky-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-lg sm:text-xl font-black text-white group-hover:text-sky-300 transition flex items-center gap-2">
+                            <span>📖 جدول الـ 50 كلمة والناطق الصوتي</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400">
+                            استعراض جميع الكلمات مع النطق الصوتي العادي والبطيء والمراجعة الذاتية
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-sky-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 2. صفحة تحدي آخر حرف (مستقلة بالكامل - كتابة فقط) -->
+        <!-- =================================================================== -->
+        <section id="page-chain" class="hidden main-card rounded-3xl p-6 sm:p-8 space-y-6">
+            
+            <!-- شريط علوي: رجوع + تحديد النطاق -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <span class="text-slate-400">النطاق:</span>
+                    <input type="number" id="chainStart" value="1" min="1" max="50" class="w-14 bg-slate-900 border border-slate-700 rounded-lg py-1 text-center text-white en-font">
+                    <span class="text-slate-400">إلى</span>
+                    <input type="number" id="chainEnd" value="20" min="1" max="50" class="w-14 bg-slate-900 border border-slate-700 rounded-lg py-1 text-center text-white en-font">
+                    <button onclick="startChainChallenge()" class="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30">
+                        تطبيق
+                    </button>
+                </div>
+            </div>
+
+            <!-- إشعار الانتقال التلقائي في حال عدم وجود كلمة تبدأ بالحرف -->
+            <div id="chainNotice" class="hidden p-3.5 rounded-2xl bg-amber-500/15 border border-amber-400/40 text-amber-200 text-xs sm:text-sm font-bold text-center"></div>
+
+            <!-- صندوق السؤال الكتابي -->
+            <div class="text-center space-y-5 py-2">
+                <div id="chainStepTitle" class="text-sm font-bold text-amber-400"></div>
+
+                <!-- الكلمة أو الحرف المطلوب -->
+                <div id="chainPromptWord" class="py-2"></div>
+
+                <!-- حقل الكتابة -->
+                <div class="max-w-md mx-auto space-y-3">
+                    <div class="flex gap-2">
+                        <input type="text" id="chainInput" dir="ltr" autocomplete="off" placeholder="اكتب الكلمة بالإنجليزي..."
+                            class="w-full en-font bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 rounded-2xl px-4 py-3.5 text-center text-lg font-extrabold text-white focus:outline-none">
+                        <button onclick="checkChainInput()" class="theme-btn px-6 py-3.5 rounded-2xl font-black text-white shrink-0">
+                            تحقق
+                        </button>
+                    </div>
+
+                    <!-- أزرار المساعدة و (❌ لا يوجد) -->
+                    <div class="flex items-center justify-center gap-3 pt-1">
+                        <button id="chainNoWordBtn" onclick="handleChainNoWordClick()" class="hidden px-4 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-extrabold">
+                            ❌ لا يوجد كلمة بهذا الحرف
+                        </button>
+                        <button onclick="skipCurrentChainStep()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
+                            💡 أظهر الإجابة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- رسالة التصحيح البسيطة -->
+                <div id="chainFeedback" class="hidden p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto"></div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 3. صفحة إعداد الاختبار التدريبي الاعتيادي -->
+        <!-- =================================================================== -->
+        <section id="page-quiz-setup" class="hidden main-card rounded-3xl p-6 sm:p-8 space-y-6">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+                <h2 class="text-lg font-black text-white">إعداد الاختبار التدريبي</h2>
+            </div>
+
+            <!-- 1. اختيار المستوى -->
+            <div class="space-y-2.5">
+                <label class="block text-sm font-extrabold text-slate-300">1. اختر المستوى:</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="setSetupLevel('standard')" id="btn-lvl-standard" class="p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-500/15 text-right transition">
+                        <div class="font-black text-white text-base">المستوى العادي (Standard)</div>
+                        <div class="text-xs text-slate-300 mt-1">اختبار المعاني والترجمة للعمود A فقط</div>
+                    </button>
+                    <button onclick="setSetupLevel('pro')" id="btn-lvl-pro" class="p-4 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition">
+                        <div class="font-black text-white text-base">المستوى المحترف (Pro)</div>
+                        <div class="text-xs text-slate-300 mt-1">اختبار المرادفات (A و B) بدون معاني</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- خيار فرعي يظهر فقط للمحترف: A->B أو B->A أو ملخبط -->
+            <div id="proDirectionBox" class="hidden space-y-2">
+                <label class="block text-sm font-extrabold text-amber-300">طريقة أسئلة المحترف:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="setProDir('ab')" id="btn-dir-ab" class="p-3 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-center font-bold text-xs sm:text-sm text-white">
+                        العمود A ⬅ B
+                    </button>
+                    <button onclick="setProDir('ba')" id="btn-dir-ba" class="p-3 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs sm:text-sm text-white">
+                        العمود B ⬅ A
+                    </button>
+                    <button onclick="setProDir('mixed')" id="btn-dir-mixed" class="p-3 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs sm:text-sm text-white">
+                        ملخبط (A ⇄ B)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. طريقة الإجابة: مقالي (كتابة) أو اختيارات -->
+            <div class="space-y-2.5">
+                <label class="block text-sm font-extrabold text-slate-300">2. نوع الأسئلة:</label>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="setSetupStyle('written')" id="btn-style-written" class="p-3.5 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white">
+                        ✍️ مقالي (كتابة)
+                    </button>
+                    <button onclick="setSetupStyle('choices')" id="btn-style-choices" class="p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white">
+                        🔢 اختيارات
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. تحديد النطاق -->
+            <div class="space-y-2.5">
+                <label class="block text-sm font-extrabold text-slate-300">3. حدد الكلمات (من كم لكم؟):</label>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="setQuizRange(1,5)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 5</button>
+                    <button onclick="setQuizRange(1,10)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 10</button>
+                    <button onclick="setQuizRange(1,20)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 20</button>
+                    <button onclick="setQuizRange(1,50)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 50 (كامل)</button>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <div class="flex items-center gap-2 flex-1 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-bold">من:</span>
+                        <input type="number" id="quizStartInput" value="1" min="1" max="50" class="w-full bg-transparent text-center font-black text-white en-font focus:outline-none">
+                    </div>
+                    <div class="flex items-center gap-2 flex-1 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-bold">إلى:</span>
+                        <input type="number" id="quizEndInput" value="10" min="1" max="50" class="w-full bg-transparent text-center font-black text-white en-font focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="launchQuiz()" class="theme-btn w-full py-4 rounded-2xl font-black text-base text-white">
+                ابدأ الاختبار الآن 🚀
+            </button>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 4. صفحة الأسئلة الفعلية للاختبار الاعتيادي -->
+        <!-- =================================================================== -->
+        <section id="page-quiz-active" class="hidden main-card rounded-3xl p-6 sm:p-8 space-y-6">
+            
+            <!-- شريط علوي -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <button onclick="openPage('quiz-setup')" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 flex items-center gap-1">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>إعدادات الاختبار</span>
+                </button>
+                <div class="flex items-center gap-3 text-xs sm:text-sm font-black">
+                    <span class="text-emerald-400">صح: <span id="qRightCount" class="en-font">0</span></span>
+                    <span class="text-rose-400">خطأ: <span id="qWrongCount" class="en-font">0</span></span>
+                    <span id="qProgressBadge" class="px-2.5 py-1 rounded-lg bg-slate-800 text-white en-font">1 / 10</span>
+                </div>
+            </div>
+
+            <!-- منطقة السؤال -->
+            <div id="quizQuestionArea" class="text-center space-y-5 py-2">
+                <div id="qInstruction" class="text-xs sm:text-sm font-bold text-slate-400"></div>
+
+                <!-- الكلمة المطلوب الإجابة عنها -->
+                <div id="qWordDisplay" class="py-2"></div>
+
+                <!-- الوضع المقالي (كتابة) -->
+                <div id="qWrittenBox" class="hidden max-w-md mx-auto space-y-3">
+                    <div class="flex gap-2">
+                        <input type="text" id="qWrittenInput" autocomplete="off"
+                            class="w-full bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 rounded-2xl px-4 py-3.5 text-center text-lg font-extrabold text-white focus:outline-none">
+                        <button onclick="submitWrittenQuiz()" id="qSubmitBtn" class="theme-btn px-6 py-3.5 rounded-2xl font-black text-white shrink-0">
+                            تحقق
+                        </button>
+                    </div>
+                </div>
+
+                <!-- وضع الاختيارات -->
+                <div id="qChoicesBox" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto"></div>
+
+                <!-- نتيجة السؤال البسيطة والمباشرة (بدون جمل إضافية) -->
+                <div id="qSimpleFeedback" class="hidden p-4 rounded-2xl font-extrabold text-sm sm:text-base max-w-md mx-auto"></div>
+
+                <!-- زر التالي -->
+                <button id="qNextBtn" onclick="goNextQuizItem()" class="hidden theme-btn px-10 py-3 rounded-2xl font-black text-white mx-auto">
+                    السؤال التالي ⬅
+                </button>
+            </div>
+
+            <!-- شاشة النتيجة النهائية -->
+            <div id="quizSummaryArea" class="hidden text-center py-6 space-y-5">
+                <div class="text-5xl">🏆</div>
+                <h3 class="text-2xl font-black text-white">انتهى الاختبار!</h3>
+                <div id="qFinalScoreText" class="text-lg font-bold text-emerald-400"></div>
+                <div class="flex justify-center gap-3 pt-2">
+                    <button onclick="launchQuiz()" class="theme-btn px-6 py-3 rounded-2xl font-black text-white">
+                        إعادة الاختبار (ملخبط) 🔄
+                    </button>
+                    <button onclick="openPage('quiz-setup')" class="px-6 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 font-bold text-slate-200">
+                        تغيير الإعدادات
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 5. صفحة جدول الـ 50 كلمة والناطق (مستقلة) -->
+        <!-- =================================================================== -->
+        <section id="page-dictionary" class="hidden main-card rounded-3xl p-5 sm:p-7 space-y-4">
+            
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+                <input type="text" id="dictSearchInput" oninput="renderDictionary()" placeholder="ابحث عن كلمة أو رقم..."
+                    class="w-full sm:w-60 bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs font-bold text-white focus:outline-none">
+            </div>
+
+            <!-- أزرار إخفاء الأعمدة للمراجعة -->
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+                <span class="text-slate-400 font-bold">إخفاء للمراجعة:</span>
+                <button onclick="toggleDictCol('a')" id="toggle-col-a" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">العمود A</button>
+                <button onclick="toggleDictCol('tr')" id="toggle-col-tr" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">الترجمة</button>
+                <button onclick="toggleDictCol('b')" id="toggle-col-b" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">العمود B</button>
+            </div>
+
+            <div id="dictListContainer" class="space-y-2 max-h-[460px] overflow-y-auto pr-1"></div>
+        </section>
+
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. بيانات الـ 50 كلمة كاملة مع الكلمات المفتاحية للترجمة المرنة
+        // =========================================================================
+        const WORDS_DATA = [
+            { id: 1, a: "help", tr: "يساعد", acceptAr: ["يساعد", "مساعده", "مساعدة", "يعين"], b: "assist" },
+            { id: 2, a: "show", tr: "يوضح", acceptAr: ["يوضح", "يبين", "يعرض", "يظهر"], b: "demonstrate" },
+            { id: 3, a: "start", tr: "يبدأ", acceptAr: ["يبدأ", "يبدا", "بدايه", "يشرع"], b: "commence" },
+            { id: 4, a: "explain", tr: "يوضح", acceptAr: ["يوضح", "يشرح", "يفسر"], b: "clarify" },
+            { id: 5, a: "choose", tr: "يختار", acceptAr: ["يختار", "ينتقي", "اختيار"], b: "select" },
+            { id: 6, a: "improve", tr: "يحسن", acceptAr: ["يحسن", "يطور", "تحسين"], b: "enhance" },
+            { id: 7, a: "change", tr: "يعدل", acceptAr: ["يعدل", "يغير", "تعديل", "تغيير"], b: "modify" },
+            { id: 8, a: "reduce", tr: "يقلل إلى أدنى حد", acceptAr: ["يقلل", "يقلل الى ادنى حد", "يخفض", "ينقص", "تقليل"], b: "minimize" },
+            { id: 9, a: "check", tr: "يتحقق من", acceptAr: ["يتحقق", "يتحقق من", "يفحص", "يتأكد", "يتاكد"], b: "verify" },
+            { id: 10, a: "try", tr: "يحاول", acceptAr: ["يحاول", "يجرب", "محاوله"], b: "attempt" },
+            { id: 11, a: "ask", tr: "يستفسر", acceptAr: ["يستفسر", "يسأل", "يسال"], b: "inquire" },
+            { id: 12, a: "need", tr: "يحتاج / يتطلب", acceptAr: ["يحتاج", "يتطلب"], b: "require" },
+            { id: 13, a: "end", tr: "ينتهي", acceptAr: ["ينتهي", "ينهي", "يختتم"], b: "conclude" },
+            { id: 14, a: "keep", tr: "يحتفظ بـ", acceptAr: ["يحتفظ", "يحتفظ ب", "يحفظ", "يبقي"], b: "retain" },
+            { id: 15, a: "fix", tr: "يصلح", acceptAr: ["يصلح", "يرمم", "اصلاح"], b: "repair" },
+            { id: 16, a: "study", tr: "يدرس / يحلل", acceptAr: ["يدرس", "يحلل"], b: "analyze" },
+            { id: 17, a: "judge", tr: "يقيم", acceptAr: ["يقيم", "يحكم", "تقييم"], b: "evaluate" },
+            { id: 18, a: "recognize", tr: "يتعرف / يحدد", acceptAr: ["يتعرف", "يحدد", "يتعرف على", "يميز"], b: "identify" },
+            { id: 19, a: "examine", tr: "يفحص / يحقق", acceptAr: ["يفحص", "يحقق", "يتحرى"], b: "investigate" },
+            { id: 20, a: "collect", tr: "يجمع", acceptAr: ["يجمع", "يحشد", "جمع"], b: "gather" },
+            { id: 21, a: "notice", tr: "يلاحظ / يراقب", acceptAr: ["يلاحظ", "يراقب", "يرصد"], b: "observe" },
+            { id: 22, a: "search", tr: "يبحث عن", acceptAr: ["يبحث", "يبحث عن", "يسعى"], b: "seek" },
+            { id: 23, a: "think", tr: "يفكر في", acceptAr: ["يفكر", "يفكر في", "يعتبر"], b: "consider" },
+            { id: 24, a: "guess", tr: "يخمن / يقدر", acceptAr: ["يخمن", "يقدر"], b: "estimate" },
+            { id: 25, a: "sort", tr: "يصنف", acceptAr: ["يصنف", "يرتب", "يفرز"], b: "classify" },
+            { id: 26, a: "predict", tr: "يتنبأ", acceptAr: ["يتنبأ", "يتنبا", "يتوقع"], b: "forecast" },
+            { id: 27, a: "infer", tr: "يستنتج", acceptAr: ["يستنتج", "يستنبط"], b: "deduce" },
+            { id: 28, a: "affect", tr: "يؤثر في", acceptAr: ["يؤثر", "يوثر", "يؤثر في"], b: "influence" },
+            { id: 29, a: "produce", tr: "ينتج / يولد", acceptAr: ["ينتج", "يولد"], b: "generate" },
+            { id: 30, a: "block", tr: "يمنع", acceptAr: ["يمنع", "يحجب", "يعيق"], b: "prevent" },
+            { id: 31, a: "ban", tr: "يحظر", acceptAr: ["يحظر", "يمنع"], b: "prohibit" },
+            { id: 32, a: "limit", tr: "يقيد", acceptAr: ["يقيد", "يحد", "يحدد"], b: "restrict" },
+            { id: 33, a: "control", tr: "ينظم", acceptAr: ["ينظم", "يتحكم", "يضبط"], b: "regulate" },
+            { id: 34, a: "suggest", tr: "يقترح", acceptAr: ["يقترح", "يعرض"], b: "propose" },
+            { id: 35, a: "apply", tr: "يطبق / ينفذ", acceptAr: ["يطبق", "ينفذ"], b: "implement" },
+            { id: 36, a: "ensure", tr: "يضمن", acceptAr: ["يضمن", "يكفل"], b: "guarantee" },
+            { id: 37, a: "strengthen", tr: "يعزز", acceptAr: ["يعزز", "يقوي", "يدعم"], b: "reinforce" },
+            { id: 38, a: "remove", tr: "يزيل / يتخلص", acceptAr: ["يزيل", "يتخلص", "يتخلص من", "يحذف"], b: "eliminate" },
+            { id: 39, a: "announce", tr: "يعلن رسميًا", acceptAr: ["يعلن", "يعلن رسميا", "يصرح"], b: "declare" },
+            { id: 40, a: "hint", tr: "يوحي / يلمح", acceptAr: ["يوحي", "يلمح", "يشير"], b: "imply" },
+            { id: 41, a: "stress", tr: "يؤكد على", acceptAr: ["يؤكد", "يوئكد", "يؤكد على", "يشدد"], b: "emphasize" },
+            { id: 42, a: "mention", tr: "يذكر / يبرز", acceptAr: ["يذكر", "يبرز"], b: "highlight" },
+            { id: 43, a: "display", tr: "يعرض", acceptAr: ["يعرض", "يظهر"], b: "exhibit" },
+            { id: 44, a: "send", tr: "يرسل / ينقل", acceptAr: ["يرسل", "ينقل"], b: "transmit" },
+            { id: 45, a: "admit", tr: "يعترف / يقر", acceptAr: ["يعترف", "يقر"], b: "acknowledge" },
+            { id: 46, a: "expect", tr: "يتوقع مسبقا", acceptAr: ["يتوقع", "يتوقع مسبقا"], b: "anticipate" },
+            { id: 47, a: "warn", tr: "يحذر", acceptAr: ["يحذر", "ينبه"], b: "caution" },
+            { id: 48, a: "refuse", tr: "يرفض", acceptAr: ["يرفض", "رفض"], b: "reject" },
+            { id: 49, a: "approve", tr: "يوافق / يؤيد", acceptAr: ["يوافق", "يؤيد"], b: "endorse" },
+            { id: 50, a: "persuade", tr: "يقنع", acceptAr: ["يقنع", "اقناع"], b: "convince" }
+        ];
+
+        // =========================================================================
+        // 2. التنقل بين الصفحات المستقلة والألوان والناطق
+        // =========================================================================
+        function openPage(pageId) {
+            ['home', 'chain', 'quiz-setup', 'quiz-active', 'dictionary'].forEach(id => {
+                document.getElementById('page-' + id).classList.add('hidden');
+            });
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+
+            if (pageId === 'chain') startChainChallenge();
+            if (pageId === 'dictionary') renderDictionary();
+        }
+
+        function setTheme(themeName) {
+            document.body.setAttribute('data-theme', themeName);
+            ['indigo', 'emerald', 'amber', 'rose', 'cyan'].forEach(t => {
+                const btn = document.getElementById('theme-' + t);
+                if (t === themeName) {
+                    btn.className = `w-6 h-6 rounded-full bg-${t}-500 ring-2 ring-white ring-offset-2 ring-offset-slate-900 transition`;
+                } else {
+                    btn.className = `w-6 h-6 rounded-full bg-${t}-500 transition`;
+                }
+            });
+        }
+
+        function speakEnglish(text, rate = 0.9) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'en-US';
+            u.rate = rate;
+            window.speechSynthesis.speak(u);
+        }
+
+        // =========================================================================
+        // 3. تحدي آخر حرف (كتابة فقط - ذكي ومباشر)
+        // =========================================================================
+        let chainPool = [];
+        let chainUsedIds = new Set();
+        let chainCurrentWord = null;
+        let chainCurrentSide = 'a'; // 'a' means user needs to type 'b'; 'b' means user needs to type 'a'
+        let chainStep = 'SYNONYM'; // 'SYNONYM' or 'LETTER'
+        let chainLetter = '';
+
+        // ترتيب الانتقال التلقائي للكلمات بحيث يبدأ بـ help ثم إذا انتهى حرف T ينتقل لـ study تماماً كما شرحت
+        const JUMP_PRIORITY = [1, 16, 2, 3, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 18, 20];
+
+        function startChainChallenge() {
+            let s = parseInt(document.getElementById('chainStart').value, 10) || 1;
+            let e = parseInt(document.getElementById('chainEnd').value, 10) || 20;
+            s = Math.max(1, Math.min(50, s));
+            e = Math.max(1, Math.min(50, e));
+            if (s > e) { const tmp = s; s = e; e = tmp; }
+
+            chainPool = WORDS_DATA.filter(w => w.id >= s && w.id <= e);
+            chainUsedIds = new Set();
+
+            chainCurrentWord = chainPool[0];
+            chainCurrentSide = 'a';
+            chainUsedIds.add(chainCurrentWord.id);
+            chainStep = 'SYNONYM';
+
+            document.getElementById('chainNotice').classList.add('hidden');
+            document.getElementById('chainFeedback').classList.add('hidden');
+            renderChainView();
+        }
+
+        // فحص هل توجد كلمة غير مستخدمة في النطاق تبدأ بالحرف المطلوب (في أي عمود)
+        function findWordsStartingWith(letter) {
+            const l = letter.toLowerCase();
+            return chainPool.filter(w => !chainUsedIds.has(w.id) && (w.a.charAt(0).toLowerCase() === l || w.b.charAt(0).toLowerCase() === l));
+        }
+
+        function getNextJumpWord() {
+            for (const id of JUMP_PRIORITY) {
+                const found = chainPool.find(w => w.id === id && !chainUsedIds.has(w.id));
+                if (found) return found;
+            }
+            return chainPool.find(w => !chainUsedIds.has(w.id)) || null;
+        }
+
+        function renderChainView() {
+            const titleEl = document.getElementById('chainStepTitle');
+            const promptEl = document.getElementById('chainPromptWord');
+            const inputEl = document.getElementById('chainInput');
+            const noWordBtn = document.getElementById('chainNoWordBtn');
+
+            inputEl.value = '';
+            setTimeout(() => inputEl.focus(), 50);
+
+            if (chainStep === 'SYNONYM') {
+                noWordBtn.classList.add('hidden');
+                const shownWord = chainCurrentSide === 'a' ? chainCurrentWord.a : chainCurrentWord.b;
+                titleEl.textContent = 'اكتب مرادف هذه الكلمة:';
+                promptEl.innerHTML = `
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-4xl sm:text-5xl font-black text-white en-font">${shownWord}</span>
+                        <button onclick="speakEnglish('${shownWord}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center">
+                            <i class="ph-fill ph-speaker-high text-xl"></i>
+                        </button>
+                    </div>
+                `;
+                inputEl.placeholder = `اكتب مرادف ${shownWord}...`;
+            } else {
+                // خطوة الحرف الأخير
+                noWordBtn.classList.remove('hidden');
+                const upper = chainLetter.toUpperCase();
+                titleEl.textContent = `آخر حرف هو (${upper}) — هات كلمة من النطاق تبدأ بحرف (${upper}):`;
+                promptEl.innerHTML = `
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-amber-500/20 border-2 border-amber-400 text-4xl font-black text-amber-300 en-font">
+                        ${upper}
+                    </div>
+                `;
+                inputEl.placeholder = `اكتب كلمة تبدأ بحرف ${upper}...`;
+            }
+        }
+
+        function checkChainInput() {
+            const val = document.getElementById('chainInput').value.trim().toLowerCase();
+            if (!val) return;
+
+            if (chainStep === 'SYNONYM') {
+                const expectedSynonym = chainCurrentSide === 'a' ? chainCurrentWord.b.toLowerCase() : chainCurrentWord.a.toLowerCase();
+                if (val === expectedSynonym) {
+                    speakEnglish(expectedSynonym);
+                    showChainMsg(true, `✅ صح! مرادفها (${expectedSynonym})`);
+                    proceedAfterSynonym(expectedSynonym);
+                } else {
+                    showChainMsg(false, `❌ خطأ، حاول مرة أخرى!`);
+                }
+            } else if (chainStep === 'LETTER') {
+                if (val.charAt(0) !== chainLetter.toLowerCase()) {
+                    showChainMsg(false, `❌ يجب أن تبدأ الكلمة بحرف (${chainLetter.toUpperCase()})`);
+                    return;
+                }
+                const matches = findWordsStartingWith(chainLetter);
+                const matchedObj = matches.find(w => w.a.toLowerCase() === val || w.b.toLowerCase() === val);
+
+                if (matchedObj) {
+                    chainCurrentWord = matchedObj;
+                    chainCurrentSide = (matchedObj.a.toLowerCase() === val) ? 'a' : 'b';
+                    chainUsedIds.add(matchedObj.id);
+                    chainStep = 'SYNONYM';
+                    document.getElementById('chainNotice').classList.add('hidden');
+                    speakEnglish(val);
+                    showChainMsg(true, `✅ ممتاز! الآن هات مرادف (${val})`);
+                    renderChainView();
+                } else {
+                    showChainMsg(false, `❌ هذه الكلمة غير موجودة في النطاق المحدد أو تم استخدامها`);
+                }
+            }
+        }
+
+        function proceedAfterSynonym(synonymWord) {
+            const lastChar = synonymWord.slice(-1).toLowerCase();
+            const availableForLetter = findWordsStartingWith(lastChar);
+
+            if (availableForLetter.length > 0) {
+                // يوجد كلمة في النطاق تبدأ بهذا الحرف -> اسأل المستخدم عنها
+                document.getElementById('chainNotice').classList.add('hidden');
+                chainLetter = lastChar;
+                chainStep = 'LETTER';
+                renderChainView();
+            } else {
+                // لا يوجد أي كلمة متبقية تبدأ بهذا الحرف -> لا تهبد، انتقل مباشرة لكلمة جديدة مثل study!
+                const nextWord = getNextJumpWord();
+                if (!nextWord) {
+                    finishChainChallenge();
+                    return;
+                }
+                const notice = document.getElementById('chainNotice');
+                notice.classList.remove('hidden');
+                notice.innerHTML = `آخر حرف من <span class="en-font font-black">${synonymWord}</span> هو <span class="en-font font-black">(${lastChar.toUpperCase()})</span> — لا توجد كلمة متبقية تبدأ به، ننتقل لكلمة: <span class="en-font font-black text-white">${nextWord.a}</span>`;
+
+                chainCurrentWord = nextWord;
+                chainCurrentSide = 'a';
+                chainUsedIds.add(nextWord.id);
+                chainStep = 'SYNONYM';
+                renderChainView();
+            }
+        }
+
+        function handleChainNoWordClick() {
+            const matches = findWordsStartingWith(chainLetter);
+            if (matches.length > 0) {
+                const sample = matches[0].a.charAt(0).toLowerCase() === chainLetter ? matches[0].a : matches[0].b;
+                showChainMsg(false, `بل توجد كلمة في النطاق تبدأ بحرف (${chainLetter.toUpperCase()}) مثل: ${sample}`);
+            } else {
+                const nextWord = getNextJumpWord();
+                if (!nextWord) {
+                    finishChainChallenge();
+                    return;
+                }
+                chainCurrentWord = nextWord;
+                chainCurrentSide = 'a';
+                chainUsedIds.add(nextWord.id);
+                chainStep = 'SYNONYM';
+                showChainMsg(true, `✅ صحيح لا يوجد! انتقلنا إلى: ${nextWord.a}`);
+                renderChainView();
+            }
+        }
+
+        function skipCurrentChainStep() {
+            if (chainStep === 'SYNONYM') {
+                const ans = chainCurrentSide === 'a' ? chainCurrentWord.b : chainCurrentWord.a;
+                document.getElementById('chainInput').value = ans;
+                checkChainInput();
+            } else {
+                const matches = findWordsStartingWith(chainLetter);
+                if (matches.length > 0) {
+                    // تفضيل try و examine كما في شرحك
+                    const preferred = matches.find(w => w.a === 'try' || w.a === 'examine') || matches[0];
+                    const wordToUse = preferred.a.charAt(0).toLowerCase() === chainLetter ? preferred.a : preferred.b;
+                    document.getElementById('chainInput').value = wordToUse;
+                    checkChainInput();
+                }
+            }
+        }
+
+        function showChainMsg(isOk, text) {
+            const fb = document.getElementById('chainFeedback');
+            fb.classList.remove('hidden');
+            fb.className = isOk
+                ? 'p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto bg-emerald-500/15 border border-emerald-500/40 text-emerald-300'
+                : 'p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto bg-rose-500/15 border border-rose-500/40 text-rose-300';
+            fb.textContent = text;
+        }
+
+        function finishChainChallenge() {
+            document.getElementById('chainStepTitle').textContent = '🎉 أحسنت! أنهيت جميع كلمات النطاق';
+            document.getElementById('chainPromptWord').innerHTML = `
+                <button onclick="startChainChallenge()" class="theme-btn px-8 py-3.5 rounded-2xl font-black text-white mt-2">
+                    إعادة التحدي من جديد 🔄
+                </button>
+            `;
+        }
+
+        document.getElementById('chainInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkChainInput();
+        });
+
+        // =========================================================================
+        // 4. الاختبار الاعتيادي:
+        //    - المستوى العادي: العمود A والترجمة العربية فقط (بدون جمل وبدون فلسفة)
+        //    - المستوى المحترف: المرادفات بالإنجليزي فقط (A->B أو B->A أو ملخبط) بدون معاني
+        // =========================================================================
+        let quizSettings = {
+            level: 'standard', // 'standard' (A + Arabic) or 'pro' (A & B synonyms only)
+            proDir: 'ab',      // 'ab', 'ba', 'mixed'
+            style: 'written',  // 'written' or 'choices'
+            start: 1,
+            end: 10
+        };
+
+        let quizItems = [];
+        let qIdx = 0;
+        let qRight = 0;
+        let qWrong = 0;
+        let qLocked = false;
+
+        function setSetupLevel(lvl) {
+            quizSettings.level = lvl;
+            const stdBtn = document.getElementById('btn-lvl-standard');
+            const proBtn = document.getElementById('btn-lvl-pro');
+            const proBox = document.getElementById('proDirectionBox');
+
+            if (lvl === 'standard') {
+                stdBtn.className = 'p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-500/15 text-right transition';
+                proBtn.className = 'p-4 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition';
+                proBox.classList.add('hidden');
+            } else {
+                proBtn.className = 'p-4 rounded-2xl border-2 border-amber-500 bg-amber-500/15 text-right transition';
+                stdBtn.className = 'p-4 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition';
+                proBox.classList.remove('hidden');
+            }
+        }
+
+        function setProDir(dir) {
+            quizSettings.proDir = dir;
+            ['ab', 'ba', 'mixed'].forEach(d => {
+                const btn = document.getElementById('btn-dir-' + d);
+                btn.className = (d === dir)
+                    ? 'p-3 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-center font-bold text-xs sm:text-sm text-white'
+                    : 'p-3 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs sm:text-sm text-white';
+            });
+        }
+
+        function setSetupStyle(st) {
+            quizSettings.style = st;
+            document.getElementById('btn-style-written').className = (st === 'written')
+                ? 'p-3.5 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white'
+                : 'p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white';
+            document.getElementById('btn-style-choices').className = (st === 'choices')
+                ? 'p-3.5 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white'
+                : 'p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white';
+        }
+
+        function setQuizRange(s, e) {
+            document.getElementById('quizStartInput').value = s;
+            document.getElementById('quizEndInput').value = e;
+        }
+
+        function launchQuiz() {
+            let s = parseInt(document.getElementById('quizStartInput').value, 10) || 1;
+            let e = parseInt(document.getElementById('quizEndInput').value, 10) || 10;
+            s = Math.max(1, Math.min(50, s));
+            e = Math.max(1, Math.min(50, e));
+            if (s > e) { const tmp = s; s = e; e = tmp; }
+
+            quizSettings.start = s;
+            quizSettings.end = e;
+
+            const pool = shuffleArray(WORDS_DATA.filter(w => w.id >= s && w.id <= e));
+
+            quizItems = pool.map(word => {
+                if (quizSettings.level === 'standard') {
+                    // المستوى العادي: دائماً العمود A ومعناه بالعربي فقط
+                    return { word, mode: 'standard_ar' };
+                } else {
+                    // المستوى المحترف: مرادفات إنجليزي فقط بدون معاني
+                    let dir = quizSettings.proDir;
+                    if (dir === 'mixed') dir = Math.random() < 0.5 ? 'ab' : 'ba';
+                    return { word, mode: dir };
+                }
+            });
+
+            qIdx = 0;
+            qRight = 0;
+            qWrong = 0;
+
+            openPage('quiz-active');
+            document.getElementById('quizQuestionArea').classList.remove('hidden');
+            document.getElementById('quizSummaryArea').classList.add('hidden');
+            renderCurrentQuizItem();
+        }
+
+        function renderCurrentQuizItem() {
+            qLocked = false;
+            const current = quizItems[qIdx];
+            const w = current.word;
+
+            document.getElementById('qRightCount').textContent = qRight;
+            document.getElementById('qWrongCount').textContent = qWrong;
+            document.getElementById('qProgressBadge').textContent = `${qIdx + 1} / ${quizItems.length}`;
+
+            document.getElementById('qSimpleFeedback').classList.add('hidden');
+            document.getElementById('qNextBtn').classList.add('hidden');
+
+            const instEl = document.getElementById('qInstruction');
+            const wordEl = document.getElementById('qWordDisplay');
+            const writtenBox = document.getElementById('qWrittenBox');
+            const choicesBox = document.getElementById('qChoicesBox');
+            const inp = document.getElementById('qWrittenInput');
+            inp.disabled = false;
+            document.getElementById('qSubmitBtn').disabled = false;
+
+            if (current.mode === 'standard_ar') {
+                // المستوى العادي: يعرض الكلمة من A ويطلب معناها بالعربي فقط
+                instEl.textContent = 'ما معنى هذه الكلمة بالعربي؟';
+                wordEl.innerHTML = `
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-4xl sm:text-5xl font-black text-white en-font">${w.a}</span>
+                        <button onclick="speakEnglish('${w.a}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center">
+                            <i class="ph-fill ph-speaker-high text-xl"></i>
+                        </button>
+                    </div>
+                `;
+            } else if (current.mode === 'ab') {
+                // المحترف: العمود A ويطلب مرادفه في B (بدون أي معاني عربية)
+                instEl.textContent = 'هات المرادف في العمود (B):';
+                wordEl.innerHTML = `
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-4xl sm:text-5xl font-black text-white en-font">${w.a}</span>
+                        <button onclick="speakEnglish('${w.a}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center">
+                            <i class="ph-fill ph-speaker-high text-xl"></i>
+                        </button>
+                    </div>
+                `;
+            } else if (current.mode === 'ba') {
+                // المحترف: العمود B ويطلب مرادفه في A (بدون أي معاني عربية)
+                instEl.textContent = 'هات المرادف في العمود (A):';
+                wordEl.innerHTML = `
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-4xl sm:text-5xl font-black text-indigo-300 en-font">${w.b}</span>
+                        <button onclick="speakEnglish('${w.b}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center">
+                            <i class="ph-fill ph-speaker-high text-xl"></i>
+                        </button>
+                    </div>
+                `;
+            }
+
+            if (quizSettings.style === 'written') {
+                choicesBox.classList.add('hidden');
+                writtenBox.classList.remove('hidden');
+                inp.value = '';
+                if (current.mode === 'standard_ar') {
+                    inp.dir = 'rtl';
+                    inp.placeholder = 'اكتب المعنى بالعربي (مثلاً: يساعد، يقلل)...';
+                } else {
+                    inp.dir = 'ltr';
+                    inp.placeholder = 'Type the synonym in English...';
+                }
+                setTimeout(() => inp.focus(), 50);
+            } else {
+                writtenBox.classList.add('hidden');
+                choicesBox.classList.remove('hidden');
+                const field = current.mode === 'standard_ar' ? 'tr' : (current.mode === 'ab' ? 'b' : 'a');
+                const distractors = getDistractors(w, field, 3);
+                const opts = shuffleArray([w, ...distractors]);
+
+                choicesBox.innerHTML = opts.map(o => `
+                    <button onclick="handleChoiceQuiz(${o.id}, this)" class="q-opt choice-btn p-4 rounded-2xl font-extrabold text-lg text-white ${field === 'tr' ? '' : 'en-font'}">
+                        ${o[field]}
+                    </button>
+                `).join('');
+            }
+        }
+
+        function normalizeArabicText(str) {
+            return str
+                .trim()
+                .replace(/[أإآ]/g, 'ا')
+                .replace(/ة/g, 'ه')
+                .replace(/ى/g, 'ي')
+                .replace(/[\u064B-\u065F]/g, '')
+                .replace(/[^\u0621-\u064A\s]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function isArabicMeaningCorrect(inputVal, wordObj) {
+            const normUser = normalizeArabicText(inputVal);
+            if (!normUser || normUser.length < 2) return false;
+            const normFull = normalizeArabicText(wordObj.tr);
+            if (normUser === normFull || normFull.includes(normUser)) return true;
+
+            for (const item of wordObj.acceptAr) {
+                const normItem = normalizeArabicText(item);
+                if (normUser === normItem || normUser.includes(normItem) || normItem.includes(normUser)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function submitWrittenQuiz() {
+            if (qLocked) return;
+            const inp = document.getElementById('qWrittenInput');
+            const val = inp.value.trim();
+            if (!val) return;
+
+            const current = quizItems[qIdx];
+            const w = current.word;
+            let isCorrect = false;
+
+            if (current.mode === 'standard_ar') {
+                isCorrect = isArabicMeaningCorrect(val, w);
+            } else if (current.mode === 'ab') {
+                isCorrect = (val.toLowerCase() === w.b.toLowerCase());
+            } else if (current.mode === 'ba') {
+                isCorrect = (val.toLowerCase() === w.a.toLowerCase());
+            }
+
+            qLocked = true;
+            inp.disabled = true;
+            document.getElementById('qSubmitBtn').disabled = true;
+            finalizeQuizTurn(isCorrect, current);
+        }
+
+        function handleChoiceQuiz(chosenId, btnEl) {
+            if (qLocked) return;
+            qLocked = true;
+
+            const current = quizItems[qIdx];
+            const isCorrect = (chosenId === current.word.id);
+
+            document.querySelectorAll('.q-opt').forEach(b => b.disabled = true);
+            btnEl.classList.add(isCorrect ? 'choice-correct' : 'choice-wrong');
+
+            finalizeQuizTurn(isCorrect, current);
+        }
+
+        function finalizeQuizTurn(isCorrect, current) {
+            const w = current.word;
+            if (isCorrect) qRight++; else qWrong++;
+
+            document.getElementById('qRightCount').textContent = qRight;
+            document.getElementById('qWrongCount').textContent = qWrong;
+
+            const fb = document.getElementById('qSimpleFeedback');
+            fb.classList.remove('hidden');
+            fb.className = isCorrect
+                ? 'p-4 rounded-2xl font-extrabold text-sm sm:text-base max-w-md mx-auto bg-emerald-500/15 border border-emerald-500/40 text-emerald-300'
+                : 'p-4 rounded-2xl font-extrabold text-sm sm:text-base max-w-md mx-auto bg-rose-500/15 border border-rose-500/40 text-rose-300';
+
+            if (current.mode === 'standard_ar') {
+                // المستوى العادي: يكتب له فقط المعنى الكامل في الجدول مثل "يقلل إلى أدنى حد" بدون أي جمل إضافية
+                fb.textContent = isCorrect
+                    ? `✅ صح! (${w.a} = ${w.tr})`
+                    : `❌ الإجابة الصحيحة: ${w.tr}`;
+            } else if (current.mode === 'ab') {
+                speakEnglish(w.b);
+                fb.textContent = isCorrect
+                    ? `✅ صح! (${w.a} = ${w.b})`
+                    : `❌ الإجابة الصحيحة: ${w.b}`;
+            } else {
+                speakEnglish(w.a);
+                fb.textContent = isCorrect
+                    ? `✅ صح! (${w.b} = ${w.a})`
+                    : `❌ الإجابة الصحيحة: ${w.a}`;
+            }
+
+            const nextBtn = document.getElementById('qNextBtn');
+            nextBtn.classList.remove('hidden');
+            nextBtn.textContent = (qIdx + 1 < quizItems.length) ? 'السؤال التالي ⬅' : 'عرض النتيجة 🏆';
+        }
+
+        function goNextQuizItem() {
+            qIdx++;
+            if (qIdx < quizItems.length) {
+                renderCurrentQuizItem();
+            } else {
+                document.getElementById('quizQuestionArea').classList.add('hidden');
+                document.getElementById('quizSummaryArea').classList.remove('hidden');
+                document.getElementById('qFinalScoreText').textContent =
+                    `النتيجة: ${qRight} صح من أصل ${quizItems.length}`;
+            }
+        }
+
+        document.getElementById('qWrittenInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                if (!qLocked) submitWrittenQuiz();
+                else goNextQuizItem();
+            }
+        });
+
+        // =========================================================================
+        // 5. جدول الـ 50 كلمة والناطق الصوتي
+        // =========================================================================
+        let hiddenCols = { a: false, tr: false, b: false };
+
+        function toggleDictCol(col) {
+            hiddenCols[col] = !hiddenCols[col];
+            const btn = document.getElementById('toggle-col-' + col);
+            if (hiddenCols[col]) {
+                btn.classList.add('bg-amber-500/20', 'border-amber-400', 'text-amber-300');
+            } else {
+                btn.classList.remove('bg-amber-500/20', 'border-amber-400', 'text-amber-300');
+            }
+            renderDictionary();
+        }
+
+        function renderDictionary() {
+            const q = (document.getElementById('dictSearchInput').value || '').trim().toLowerCase();
+            const container = document.getElementById('dictListContainer');
+
+            const filtered = WORDS_DATA.filter(w => {
+                if (!q) return true;
+                return String(w.id) === q || w.a.includes(q) || w.b.includes(q) || w.tr.includes(q);
+            });
+
+            container.innerHTML = filtered.map(w => `
+                <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-3 grid grid-cols-1 sm:grid-cols-12 items-center gap-2">
+                    <div class="sm:col-span-1 text-center">
+                        <span class="px-2 py-1 rounded-lg bg-slate-800 text-xs font-black text-slate-400 en-font">#${w.id}</span>
+                    </div>
+
+                    <div class="sm:col-span-3 flex items-center justify-between bg-slate-950/70 px-3 py-2 rounded-xl">
+                        <span onclick="this.classList.remove('blur-sm')" class="font-black text-white en-font text-base cursor-pointer ${hiddenCols.a ? 'blur-sm select-none' : ''}">${w.a}</span>
+                        <button onclick="speakEnglish('${w.a}', 0.9)" class="text-sky-400 hover:text-sky-300">
+                            <i class="ph-fill ph-speaker-high text-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="sm:col-span-4 bg-slate-950/70 px-3 py-2 rounded-xl text-center">
+                        <span onclick="this.classList.remove('blur-sm')" class="font-bold text-emerald-400 text-sm cursor-pointer ${hiddenCols.tr ? 'blur-sm select-none' : ''}">${w.tr}</span>
+                    </div>
+
+                    <div class="sm:col-span-4 flex items-center justify-between bg-slate-950/70 px-3 py-2 rounded-xl">
+                        <span onclick="this.classList.remove('blur-sm')" class="font-black text-indigo-300 en-font text-base cursor-pointer ${hiddenCols.b ? 'blur-sm select-none' : ''}">${w.b}</span>
+                        <div class="flex items-center gap-1">
+                            <button onclick="speakEnglish('${w.b}', 0.9)" class="px-2 py-0.5 rounded bg-slate-800 text-sky-400 text-xs font-bold">🔊</button>
+                            <button onclick="speakEnglish('${w.b}', 0.55)" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold" title="نطق بطيء">🐢</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // =========================================================================
+        // 6. دوال مساعدة
+        // =========================================================================
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function getDistractors(correctWord, field, count) {
+            const others = WORDS_DATA.filter(w => w.id !== correctWord.id && w[field] !== correctWord[field]);
+            return shuffleArray(others).slice(0, count);
+        }
+    </script>
+</body>
+</html>

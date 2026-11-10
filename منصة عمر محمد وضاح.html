@@ -1,0 +1,676 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>منصة عمر محمد وضاح</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap">
+<style>
+/* Layout: one centered panel per page. Home is a compact menu card; every section opens on its own panel. */
+:root{
+  --accent:#0f8a5f;
+  --base-bg:#f5f5f2;
+  --base-card:#ffffff;
+  --fg:#16181b;
+  --bg:color-mix(in oklab, var(--accent) 7%, var(--base-bg));
+  --card:var(--base-card);
+  --muted:color-mix(in oklab, var(--accent) 14%, #646971);
+  --line:color-mix(in oklab, var(--accent) 16%, #e3e3df);
+  --soft:color-mix(in oklab, var(--accent) 9%, var(--base-card));
+  --accent-text:color-mix(in oklab, var(--accent), black 18%);
+  --on-accent:#ffffff;
+  --good:#107a45; --good-bg:#e5f4eb;
+  --bad:#bb2f22; --bad-bg:#fbe8e5;
+  --warn:#9a5b00;
+  --shadow:0 1px 2px rgba(20,22,24,.05), 0 18px 40px -18px rgba(20,22,24,.18);
+  --f-display:"Reem Kufi","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --f-en:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --base-bg:#101113; --base-card:#191a1d; --fg:#ecece9;
+    --muted:color-mix(in oklab, var(--accent) 12%, #9ba0a8);
+    --line:color-mix(in oklab, var(--accent) 20%, #2b2d31);
+    --soft:color-mix(in oklab, var(--accent) 14%, #191a1d);
+    --accent-text:color-mix(in oklab, var(--accent), white 38%);
+    --good:#56cf8f; --good-bg:#15301f; --bad:#ff8574; --bad-bg:#3a1b17; --warn:#f0b35a;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 18px 40px -18px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --base-bg:#101113; --base-card:#191a1d; --fg:#ecece9;
+  --muted:color-mix(in oklab, var(--accent) 12%, #9ba0a8);
+  --line:color-mix(in oklab, var(--accent) 20%, #2b2d31);
+  --soft:color-mix(in oklab, var(--accent) 14%, #191a1d);
+  --accent-text:color-mix(in oklab, var(--accent), white 38%);
+  --good:#56cf8f; --good-bg:#15301f; --bad:#ff8574; --bad-bg:#3a1b17; --warn:#f0b35a;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 18px 40px -18px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#app{display:flex;justify-content:center;padding-block:clamp(20px,6vh,64px);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.card{width:100%;max-width:600px;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:clamp(20px,4.5vw,36px)}
+.card.wide{max-width:1040px}
+h1,h2,h3{text-wrap:balance}
+.en{direction:ltr;unicode-bidi:isolate;font-family:var(--f-en)}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Home */
+.brand{text-align:center;display:grid;gap:12px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2.1rem,8vw,2.9rem);line-height:1.15;margin:0}
+.dua{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--accent-text);font-family:var(--f-display);font-weight:600;font-size:1.05rem}
+.dua::before,.dua::after{content:"";height:1.5px;width:clamp(18px,8vw,44px);background:currentColor;opacity:.45}
+.dua span{padding:3px 16px 5px;border:1.5px solid currentColor;border-radius:999px}
+.intro{margin:0;color:var(--muted);font-size:.92rem}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.mi{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);text-decoration:none;transition:border-color .15s,background-color .15s}
+.mi:hover{border-color:var(--accent);background:var(--soft)}
+.mi .glyph{flex:none;min-width:46px;height:40px;padding:0 6px;border-radius:10px;background:var(--soft);color:var(--accent-text);display:grid;place-items:center;font-size:.8rem;font-weight:700;letter-spacing:.02em;direction:ltr}
+.mi:hover .glyph{background:var(--accent);color:var(--on-accent)}
+.mi .tx{display:grid;gap:2px;min-width:0}
+.mi b{font-weight:600;font-size:1rem;line-height:1.35}
+.mi small{color:var(--muted);font-size:.8rem;line-height:1.45}
+.colors{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.colors .lbl{font-size:.88rem;color:var(--muted);font-weight:500}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;background:var(--c);border:3px solid var(--card);outline:2px solid transparent;cursor:pointer;padding:0;transition:transform .15s}
+.sw:hover{transform:scale(1.08)}
+.sw[aria-pressed="true"]{outline-color:var(--c)}
+
+/* Page shell */
+.phead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:22px}
+.ptitle{font-family:var(--f-display);font-size:1.6rem;font-weight:700;margin:0;line-height:1.25}
+.psub{color:var(--muted);margin:4px 0 0;font-size:.9rem;max-width:46ch}
+.back{flex:none;color:var(--muted);text-decoration:none;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.back:hover{color:var(--fg);border-color:var(--accent)}
+
+/* Forms */
+.field{border:0;padding:0;margin:0 0 18px;min-width:0}
+.field legend{font-weight:600;font-size:.9rem;padding:0;margin-bottom:8px}
+.range{display:flex;gap:10px;margin-bottom:8px}
+.range label{flex:1;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:4px 12px;color:var(--muted);font-size:.88rem}
+.range input{width:100%;min-width:0;border:0;background:transparent;color:var(--fg);font:inherit;font-size:1.05rem;font-weight:600;text-align:center;padding:6px 0;font-variant-numeric:tabular-nums}
+.range input:focus{outline:none}
+.range label:focus-within{border-color:var(--accent)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:999px;padding:3px 12px;font-size:.84rem;cursor:pointer;font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--accent);color:var(--accent-text)}
+.seg{display:flex;flex-wrap:wrap;gap:4px;background:var(--soft);padding:4px;border-radius:13px}
+.seg label{flex:1 1 0;min-width:max-content;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;text-align:center;padding:8px 10px;border-radius:9px;cursor:pointer;font-size:.9rem;color:var(--muted);transition:background-color .15s,color .15s}
+.seg input:checked + span{background:var(--card);color:var(--fg);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg input:focus-visible + span{outline:2px solid var(--accent)}
+.note{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 20px;font-weight:600;cursor:pointer;background:var(--accent);color:var(--on-accent);text-decoration:none;transition:filter .15s}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);filter:none}
+.btn.block{width:100%}
+.btn.sm{padding:8px 14px;font-size:.88rem}
+.example{background:var(--soft);border-radius:12px;padding:12px 14px;margin:0 0 20px;font-size:.92rem;text-align:center;line-height:1.9}
+.example b{color:var(--accent-text)}
+
+/* Quiz */
+.progress{height:6px;background:var(--soft);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+.qmeta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.84rem;margin:10px 0 16px;font-variant-numeric:tabular-nums}
+.qtag{display:inline-block;font-size:.76rem;font-weight:600;color:var(--accent-text);background:var(--soft);padding:2px 10px;border-radius:99px}
+.qlabel{color:var(--muted);margin:14px 0 6px;text-align:center;font-size:.95rem}
+.qprompt{font-size:clamp(1.6rem,6vw,2.1rem);font-weight:600;line-height:1.35;margin:0 0 22px;text-align:center;overflow-wrap:anywhere}
+.qprompt.sent{font-size:clamp(1.15rem,4.4vw,1.35rem);font-weight:500;line-height:1.7}
+.qprompt small{display:block;font-size:1rem;font-weight:500;color:var(--muted);margin-top:2px;direction:rtl}
+.blank{display:inline-block;min-width:6ch;border-bottom:2px solid var(--accent);height:1.1em;vertical-align:-2px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;text-align:start;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);font-size:1.05rem;cursor:pointer;transition:border-color .15s,background-color .15s;min-width:0}
+.opt .n{flex:none;width:24px;height:24px;border-radius:7px;background:var(--soft);display:grid;place-items:center;font-size:.78rem;color:var(--muted);font-family:var(--f-body)}
+.opt .ot{min-width:0;overflow-wrap:anywhere}
+.opt.en{direction:ltr}
+.opt.spell .ot{font-size:1.15rem;letter-spacing:.01em}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-bg)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.dim{opacity:.55}
+.write{display:flex;gap:8px}
+.write input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);font:inherit;font-size:1.1rem;padding:10px 14px}
+.write input:focus{outline:none;border-color:var(--accent)}
+.under{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.fb{margin-top:16px;border-radius:14px;padding:14px 16px;display:grid;gap:6px;font-size:.95rem}
+.fb.ok{background:var(--good-bg)}
+.fb.no{background:var(--bad-bg)}
+.fb .st{font-weight:700}
+.fb.ok .st{color:var(--good)}
+.fb.no .st{color:var(--bad)}
+.fileref{font-size:.86rem;color:var(--muted)}
+.fileref .en{color:var(--fg);font-weight:500}
+.fbact{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;flex-wrap:wrap}
+.says{display:flex;gap:6px;flex-wrap:wrap}
+.spk{flex:none;display:inline-flex;align-items:center;gap:6px;height:32px;min-width:32px;padding:0 8px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--accent-text);cursor:pointer;justify-content:center;font-size:.8rem}
+.spk:hover{border-color:var(--accent)}
+.spk svg{flex:none}
+mark{background:color-mix(in oklab, var(--accent) 24%, transparent);color:inherit;border-radius:4px;padding:0 3px;font-weight:600}
+
+/* Results */
+.score{text-align:center;padding:6px 0 22px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.score .big{font-family:var(--f-display);font-size:3.4rem;line-height:1.1;color:var(--accent-text);font-variant-numeric:tabular-nums;direction:ltr}
+.score .pct{color:var(--muted);font-variant-numeric:tabular-nums}
+.score p{margin:8px 0 0;font-weight:500}
+.rh{font-size:1.05rem;margin:0 0 12px;font-weight:700}
+.mlist{display:grid;gap:10px}
+.mitem{border:1px solid var(--line);border-radius:13px;padding:12px 14px;display:grid;gap:4px;font-size:.92rem;min-width:0}
+.mitem .mq{font-weight:600;font-size:1rem;overflow-wrap:anywhere}
+.mitem .yours{color:var(--bad)}
+.mitem .corr{color:var(--good)}
+.mtop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.empty{text-align:center;color:var(--muted);padding:12px;background:var(--soft);border-radius:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.actions .btn{flex:1 1 auto}
+
+/* Chain */
+.trail{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;direction:ltr;margin-bottom:6px}
+.link{font-family:var(--f-en);font-size:.8rem;padding:2px 10px;border-radius:99px;background:var(--soft);color:var(--fg)}
+.link.bad{background:var(--bad-bg);color:var(--bad)}
+.letterbox{display:grid;place-items:center;width:86px;height:86px;margin:4px auto 8px;border-radius:22px;background:var(--accent);color:var(--on-accent);font-size:3.1rem;font-weight:700;line-height:1;padding-bottom:6px}
+.hint{text-align:center;color:var(--muted);font-size:.84rem;margin:0 0 16px}
+.msg{min-height:1.5em;text-align:center;font-size:.93rem;margin:8px 0 0;font-weight:500}
+.msg.good{color:var(--good)} .msg.bad{color:var(--bad)} .msg.warn{color:var(--warn)}
+
+/* Words table */
+.tools{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tools input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);font:inherit;padding:9px 14px}
+.tools input:focus{outline:none;border-color:var(--accent)}
+.wlist{border-top:1px solid var(--line)}
+.wrow{display:grid;grid-template-columns:2.2rem minmax(0,1fr) minmax(0,1.1fr) minmax(0,1.1fr) minmax(0,2.6fr);gap:12px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line)}
+.whead{font-size:.76rem;color:var(--muted);font-weight:600;letter-spacing:.03em;padding-block:8px}
+.wrow .num{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.85rem}
+.cell{display:flex;align-items:center;gap:8px;min-width:0}
+.cell .en{font-weight:600;overflow-wrap:anywhere}
+.cell.b .en{color:var(--accent-text)}
+.cell.s{direction:ltr;justify-content:space-between}
+.cell.s span{font-size:.92rem;overflow-wrap:anywhere;min-width:0}
+.cell.t{font-size:.95rem}
+.count{color:var(--muted);font-size:.84rem;margin:10px 0 0;text-align:center}
+@media (max-width:780px){
+  .whead{display:none}
+  .wrow{grid-template-columns:1.8rem minmax(0,1fr) minmax(0,1fr);grid-template-areas:"n a b" "n t t" "n s s";row-gap:6px;padding:12px 2px}
+  .wrow .num{grid-area:n;align-self:start;padding-top:4px}
+  .cell.a{grid-area:a}.cell.b{grid-area:b}.cell.t{grid-area:t;color:var(--muted)}.cell.s{grid-area:s;background:var(--soft);border-radius:10px;padding:8px 10px}
+}
+@media (max-width:430px){
+  .menu{grid-template-columns:1fr}
+  .phead{flex-direction:column-reverse;gap:10px}
+}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--card);padding:10px 16px;border-radius:12px;font-size:.9rem;z-index:20;max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div id="app" dir="rtl" lang="ar"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+const DATA=[
+[1,"help","يساعد","assist","Teachers assist students with difficult tasks.","assist"],
+[2,"show","يوضّح","demonstrate","The results demonstrate clear progress.","demonstrate"],
+[3,"start","يبدأ","commence","The examination commences at nine.","commences"],
+[4,"explain","يوضّح","clarify","The teacher clarified the instructions.","clarified"],
+[5,"choose","يختار","select","Students selected relevant articles.","selected"],
+[6,"improve","يحسّن","enhance","Reading enhances vocabulary knowledge.","enhances"],
+[7,"change","يعدّل","modify","Researchers modified the experiment.","modified"],
+[8,"reduce","يقلّل إلى أدنى حد","minimize","Schools should minimize unnecessary waste.","minimize"],
+[9,"check","يتحقق من","verify","Scientists verified the information.","verified"],
+[10,"try","يحاول","attempt","He attempted to solve the problem.","attempted"],
+[11,"ask","يستفسر","inquire","She inquired about the course.","inquired"],
+[12,"need","يحتاج / يتطلب","require","Success requires consistent practice.","requires"],
+[13,"end","ينتهي","conclude","The conference concluded at five.","concluded"],
+[14,"keep","يحتفظ بـ","retain","Students retain information through practice.","retain"],
+[15,"fix","يصلح","repair","The technician repaired the equipment.","repaired"],
+[16,"study","يدرس / يحلّل","analyze","Scientists analyzed the results.","analyzed"],
+[17,"judge","يقيّم","evaluate","Experts evaluated the new program.","evaluated"],
+[18,"recognize","يتعرف / يحدد","identify","Students identified the main idea.","identified"],
+[19,"examine","يفحص / يحقق","investigate","Scientists investigated the problem.","investigated"],
+[20,"collect","يجمع","gather","Researchers gathered useful information.","gathered"],
+[21,"notice","يلاحظ / يراقب","observe","Researchers observed changes in behavior.","observed"],
+[22,"search","يبحث عن","seek","Students seek reliable information.","seek"],
+[23,"think","يفكر في","consider","We should consider the alternatives.","consider"],
+[24,"guess","يخمّن / يقدّر","estimate","Researchers estimated the total cost.","estimated"],
+[25,"sort","يصنّف","classify","Scientists classified the samples.","classified"],
+[26,"predict","يتنبأ","forecast","Experts forecast future demand.","forecast"],
+[27,"infer","يستنتج","deduce","Students deduced the answer from the clues.","deduced"],
+[28,"affect","يؤثر في","influence","Technology influences learning habits.","influences"],
+[29,"produce","ينتج / يولّد","generate","Solar panels generate electricity.","generate"],
+[30,"block","يمنع","prevent","Security measures prevent unauthorized access.","prevent"],
+[31,"ban","يحظر","prohibit","The law prohibits smoking indoors.","prohibits"],
+[32,"limit","يقيّد","restrict","The school restricts access to some websites.","restricts"],
+[33,"control","ينظّم","regulate","The government regulates water use.","regulates"],
+[34,"suggest","يقترح","propose","Researchers proposed a new solution.","proposed"],
+[35,"apply","يطبّق / ينفّذ","implement","The school implemented the policy.","implemented"],
+[36,"ensure","يضمن","guarantee","Clear procedures guarantee consistency.","guarantee"],
+[37,"strengthen","يعزز","reinforce","Practice reinforces learning.","reinforces"],
+[38,"remove","يزيل / يتخلص","eliminate","The new process eliminated unnecessary steps.","eliminated"],
+[39,"announce","يعلن رسمياً","declare","The government declared a holiday.","declared"],
+[40,"hint","يلمّح / يوحي","imply","The results imply a need for change.","imply"],
+[41,"stress","يؤكد على","emphasize","The teacher emphasized the key point.","emphasized"],
+[42,"mention","يذكر / يبرز","highlight","The report highlights several challenges.","highlights"],
+[43,"display","يعرض","exhibit","The museum exhibits ancient objects.","exhibits"],
+[44,"send","يرسل / ينقل","transmit","The device transmits signals.","transmits"],
+[45,"admit","يعترف / يقرّ","acknowledge","The researcher acknowledged the limitation.","acknowledged"],
+[46,"expect","يتوقع مسبقاً","anticipate","Experts anticipate further changes.","anticipate"],
+[47,"warn","يحذّر","caution","Doctors caution patients about the risks.","caution"],
+[48,"refuse","يرفض","reject","The committee rejected the proposal.","rejected"],
+[49,"approve","يوافق / يؤيد","endorse","The board endorsed the proposal.","endorsed"],
+[50,"persuade","يقنع","convince","The evidence convinced the audience.","convinced"]
+];
+const WORDS=DATA.map(([n,a,t,b,s,k])=>({n,a,t,b,s,k}));
+const ALL_EN=new Set(WORDS.flatMap(w=>[w.a,w.b,w.k]));
+const SPELL_BLOCK=new Set([...ALL_EN,'analyse','analysed','emphasise','minimise','judgement','enquire','practise']);
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const sample=(a,n)=>shuffle(a).slice(0,n);
+const pick=a=>a[Math.random()*a.length|0];
+const uniq=a=>[...new Set(a)];
+const store={
+  get(k,d){try{const v=localStorage.getItem('omw:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('omw:'+k,JSON.stringify(v))}catch(e){}}
+};
+const R=(a,b)=>`<bdi dir="ltr">${a}–${b}</bdi>`;
+function lev(a,b){const m=a.length,n=b.length;const d=[];for(let i=0;i<=m;i++){d[i]=[i]}for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]}
+const normEn=s=>String(s).toLowerCase().replace(/[^a-z]/g,'');
+function normAr(s){
+  return String(s).replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي')
+    .replace(/[^ء-ي\s]/g,' ').replace(/\s+/g,' ').trim();
+}
+const arCore=t=>t.replace(/^ال(?=..)/,'').replace(/^[يتنا](?=...)/,'');
+function arOk(input,target){
+  const u=normAr(input); if(!u) return false;
+  const uT=u.split(' ').map(arCore);
+  const near=(x,y)=>x===y||(Math.min(x.length,y.length)>=4&&lev(x,y)<=1);
+  for(const alt of target.split('/').map(normAr).filter(Boolean)){
+    if(u===alt) return true;
+    const aT=alt.split(' ').map(arCore);
+    if(uT.some(x=>near(x,aT[0]))) return true;
+    if(u.length>=3&&alt.startsWith(u)) return true;
+  }
+  return false;
+}
+const SPK=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>`;
+const spk=(text,label)=>`<button type="button" class="spk" data-say="${esc(text)}" aria-label="استمع: ${esc(text)}">${SPK}${label?`<span>${label}</span>`:''}</button>`;
+const hl=w=>esc(w.s).replace(w.k,`<mark>${w.k}</mark>`);
+const fileRef=w=>`<div class="fileref">في الملف: <span class="en">${w.n}. ${w.a}</span> — ${w.t} — <span class="en">${w.b}</span></div>`;
+
+/* ---------- speech ---------- */
+let voices=[];
+function loadVoices(){try{voices=speechSynthesis.getVoices()}catch(e){}}
+if('speechSynthesis' in window){loadVoices();try{speechSynthesis.onvoiceschanged=loadVoices}catch(e){}}
+function say(t){
+  if(!('speechSynthesis' in window)){toast('النطق الصوتي غير مدعوم في هذا المتصفح');return}
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;
+    const v=voices.find(v=>/en[-_]US/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){toast('تعذّر تشغيل الصوت')}
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){e.preventDefault();say(b.dataset.say)}});
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,2600)}
+
+/* ---------- colors ---------- */
+const PALETTES=[['emerald','زمردي','#0f8a5f'],['ocean','فيروزي','#0b7a8f'],['indigo','نيلي','#4f46e5'],['plum','بنفسجي','#8a3fd0'],['ruby','عنابي','#b0263f'],['amber','ذهبي','#b06e08']];
+function applyAccent(id){const p=PALETTES.find(p=>p[0]===id)||PALETTES[0];document.documentElement.style.setProperty('--accent',p[2]);store.set('accent',p[0])}
+applyAccent(store.get('accent','emerald'));
+
+/* ---------- shell & widgets ---------- */
+let keyHandler=null;
+document.addEventListener('keydown',e=>{if(keyHandler)keyHandler(e)});
+function shell(title,sub,body,wide){
+  keyHandler=null;
+  app.innerHTML=`<main class="card page${wide?' wide':''}"><header class="phead"><div><h2 class="ptitle">${title}</h2>${sub?`<p class="psub">${sub}</p>`:''}</div><a href="#" class="back">→ الرئيسية</a></header>${body}</main>`;
+}
+function rangeHTML(id,s){
+  s=s||{from:1,to:50};
+  return `<fieldset class="field"><legend>النطاق (أرقام الكلمات في الملف)</legend>
+  <div class="range"><label for="${id}-from">من<input id="${id}-from" type="number" min="1" max="50" inputmode="numeric" value="${s.from}"></label>
+  <label for="${id}-to">إلى<input id="${id}-to" type="number" min="1" max="50" inputmode="numeric" value="${s.to}"></label></div>
+  <div class="chips">${[[1,5],[1,10],[1,20],[21,40],[1,50]].map(([a,b])=>`<button type="button" class="chip" data-r="${a}-${b}">${R(a,b)}</button>`).join('')}</div></fieldset>`;
+}
+function bindRange(id){
+  document.querySelectorAll('.chip[data-r]').forEach(c=>c.onclick=()=>{const[a,b]=c.dataset.r.split('-');$('#'+id+'-from').value=a;$('#'+id+'-to').value=b});
+}
+function getRange(id){
+  let a=Math.round(+$('#'+id+'-from').value||1),b=Math.round(+$('#'+id+'-to').value||50);
+  a=Math.min(50,Math.max(1,a));b=Math.min(50,Math.max(1,b));if(a>b)[a,b]=[b,a];
+  return {from:a,to:b,words:WORDS.filter(w=>w.n>=a&&w.n<=b)};
+}
+const seg=(name,opts,val)=>`<div class="seg" role="radiogroup">${opts.map(([v,l])=>`<label><input type="radio" name="${name}" id="${name}-${v}" value="${v}"${v===val?' checked':''}><span>${l}</span></label>`).join('')}</div>`;
+const val=n=>(document.querySelector(`input[name="${n}"]:checked`)||{}).value;
+
+/* ---------- question builders ---------- */
+const others=w=>WORDS.filter(x=>x.n!==w.n);
+function mkTrans(w,dir,mode){
+  const ch=mode==='choice';
+  let label,p,pl,ans,al,field,accept;
+  if(dir==='en-ar'){label=ch?'اختر المعنى بالعربي':'اكتب المعنى بالعربي';p=w.a;pl='en';ans=w.t;al='ar';field='t'}
+  else if(dir==='ar-en'){label=ch?'اختر الكلمة بالإنجليزي':'اكتب الكلمة بالإنجليزي';p=w.t;pl='ar';ans=w.a;al='en';field='a';
+    accept=WORDS.filter(x=>normAr(x.t)===normAr(w.t)).map(x=>x.a)}
+  else if(dir==='a-b'){label=ch?'اختر المرادف (العمود B)':'اكتب المرادف (العمود B)';p=w.a;pl='en';ans=w.b;al='en';field='b'}
+  else {label=ch?'اختر المرادف (العمود A)':'اكتب المرادف (العمود A)';p=w.b;pl='en';ans=w.a;al='en';field='a'}
+  accept=accept||[ans];
+  let options=null;
+  if(ch){
+    const bad=new Set(accept.map(x=>al==='ar'?normAr(x):x));
+    const pool=uniq(others(w).map(x=>x[field])).filter(v=>!bad.has(al==='ar'?normAr(v):v)&&v!==ans);
+    options=shuffle([ans,...sample(pool,3)]);
+  }
+  const tag=(dir==='en-ar'||dir==='ar-en')?'ترجمة':'مرادفات';
+  return {w,tag,label,prompt:esc(p),promptText:p,pl,answer:ans,al,mode,options,
+    check:v=>{
+      if(al==='ar') return ch? v===ans : arOk(v,ans);
+      return accept.some(a=>normEn(v)===normEn(a));
+    }};
+}
+const endCat=k=>/ed$/.test(k)?'ed':/s$/.test(k)?'s':'base';
+function mkSent(w){
+  const cat=endCat(w.k);
+  const pool=others(w).map(x=>x.k);
+  let opts=shuffle(pool.filter(k=>endCat(k)===cat)).slice(0,3);
+  if(opts.length<3)opts=opts.concat(shuffle(pool.filter(k=>!opts.includes(k))).slice(0,3-opts.length));
+  return {w,tag:'جمل',label:'اختر الكلمة المناسبة للفراغ',
+    prompt:esc(w.s).replace(w.k,'( <span class="blank"></span> )'),
+    promptText:w.s.replace(w.k,'( ______ )'),pl:'en sent',answer:w.k,al:'en',mode:'choice',
+    options:shuffle([w.k,...opts]),check:v=>v===w.k,sentence:true};
+}
+/* spelling variants: small single-step changes that are hard to tell apart */
+const VOW='aeiou';
+const SUBS={a:['e','o'],e:['a','i'],i:['e','y'],o:['u','a'],u:['o'],y:['i'],c:['s','k'],s:['c'],k:['c']};
+const idxs=(w,f)=>[...w].map((c,i)=>i).filter(i=>f(i));
+const OPS=[
+  [3,w=>{const ix=idxs(w,i=>i>0&&i<w.length-1&&w[i]!==w[i+1]);if(!ix.length||w.length<4)return null;const i=pick(ix);return w.slice(0,i)+w[i+1]+w[i]+w.slice(i+2)}],
+  [3,w=>{const ix=idxs(w,i=>i>0&&!VOW.includes(w[i])&&w[i]!=='y'&&w[i]!==w[i-1]&&w[i]!==w[i+1]);if(!ix.length)return null;const i=pick(ix);return w.slice(0,i+1)+w[i]+w.slice(i+1)}],
+  [4,w=>{const m=[...w.matchAll(/(.)\1/g)];if(!m.length)return null;const x=pick(m);return w.slice(0,x.index)+w.slice(x.index+1)}],
+  [4,w=>{const ix=idxs(w,i=>i>0&&SUBS[w[i]]);if(!ix.length)return null;const i=pick(ix);return w.slice(0,i)+pick(SUBS[w[i]])+w.slice(i+1)}],
+  [3,w=>{if(w.length<5)return null;const ix=idxs(w,i=>i>0&&i<w.length-1&&VOW.includes(w[i]));if(!ix.length)return null;const i=pick(ix);return w.slice(0,i)+w.slice(i+1)}],
+  [1,w=>w.includes('ie')?w.replace('ie','ei'):w.includes('ei')?w.replace('ei','ie'):null],
+  [1,w=>w.endsWith('e')?null:w+'e'],
+];
+const OPW=OPS.flatMap(([n,f])=>Array(n).fill(f));
+function variants(word){
+  const out=new Set();let t=0;
+  while(out.size<3&&t<600){t++;const v=pick(OPW)(word);if(v&&v!==word&&/^[a-z]+$/.test(v)&&!SPELL_BLOCK.has(v))out.add(v)}
+  while(out.size<3){const v=pick(OPW)(pick(OPW)(word)||word)||word+'e';if(v!==word&&!SPELL_BLOCK.has(v))out.add(v)}
+  return [...out];
+}
+function mkSpell(w,level){
+  let prompt,promptText,target,pl;
+  if(level==='std'){target=w.a;prompt=esc(w.t);promptText=w.t;pl='ar'}
+  else if(Math.random()<.75){target=w.b;prompt=`<span class="en">${w.a}</span><small>${w.t} · اختر مرادفها بالتهجئة الصحيحة</small>`;promptText=`${w.a} (${w.t}) ← B`;pl='en'}
+  else {target=w.a;prompt=`<span class="en">${w.b}</span><small>${w.t} · اختر مرادفها بالتهجئة الصحيحة</small>`;promptText=`${w.b} (${w.t}) ← A`;pl='en'}
+  return {w,tag:'إملاء',label:level==='std'?'اختر التهجئة الصحيحة للكلمة':'وش مرادفها؟ انتبه للتهجئة',prompt,promptText,pl,answer:target,al:'en',mode:'choice',spell:true,
+    options:shuffle([target,...variants(target)]),check:v=>v===target};
+}
+function orderNoRepeat(list,key){
+  let qs=shuffle(list);
+  const last=store.get('first:'+key,null);
+  if(qs.length>1&&qs[0].n===last)qs.push(qs.shift());
+  if(qs.length)store.set('first:'+key,qs[0].n);
+  return qs;
+}
+
+/* ---------- quiz engine ---------- */
+function runQuiz(o){
+  const qs=o.build();
+  const total=qs.length;let i=0,score=0;const wrong=[];
+  function render(){
+    const q=qs[i];let done=false;
+    const body=`<div class="progress"><i style="width:${i/total*100}%"></i></div>
+      <div class="qmeta"><span>سؤال ${i+1} من ${total}</span><span>صح ${score} · خطأ ${wrong.length}</span></div>
+      <div style="text-align:center"><span class="qtag">${q.tag}</span></div>
+      <p class="qlabel">${q.label}</p>
+      <div class="qprompt ${q.pl}">${q.prompt}</div>
+      ${q.mode==='choice'
+        ?`<div class="opts">${q.options.map((op,j)=>`<button class="opt ${q.al}${q.spell?' spell':''}" data-j="${j}" type="button"><span class="n">${j+1}</span><span class="ot">${esc(op)}</span></button>`).join('')}</div>`
+        :`<form class="write" id="wf" autocomplete="off"><input id="ans" autocapitalize="off" autocorrect="off" spellcheck="false" dir="${q.al==='ar'?'rtl':'ltr'}" placeholder="${q.al==='ar'?'اكتب المعنى…':'Type the word…'}"><button class="btn">تحقق</button></form>
+          <div class="under"><button type="button" class="btn ghost sm" id="idk">ما أعرف</button></div>`}
+      <div id="fb"></div>`;
+    shell(o.title,o.sub,body);
+    const answer=(v,btn)=>{
+      if(done)return;done=true;
+      const ok=q.check(v);
+      if(ok)score++;else wrong.push({q,v});
+      if(q.mode==='choice'){
+        document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;const t=q.options[b.dataset.j];if(t===q.answer)b.classList.add('right');else if(b===btn)b.classList.add('wrong');else b.classList.add('dim')});
+      }else{
+        $('#ans').readOnly=true;const s=$('#wf button');if(s)s.disabled=true;const k=$('#idk');if(k)k.hidden=true;
+      }
+      const w=q.w;
+      let extra='';
+      if(ok&&q.al==='ar'&&q.mode==='write'&&normAr(v)!==normAr(q.answer))extra=`<div>محسوبة صح، وفي الملف مكتوبة: <b>${q.answer}</b></div>`;
+      if(!ok&&q.al==='en'&&v&&q.mode==='write'&&lev(normEn(v),normEn(q.answer))===1)extra=`<div>قريبة جداً، بس فيه خطأ إملائي.</div>`;
+      const ansHtml=q.al==='ar'?`<b>${q.answer}</b>`:`<b class="en">${q.answer}</b>`;
+      $('#fb').innerHTML=`<div class="fb ${ok?'ok':'no'}" role="status">
+        <div class="st">${ok?'إجابة صحيحة':'إجابة خاطئة'}</div>
+        ${ok?'':`<div>الصحيح: ${ansHtml}</div>`}${extra}
+        ${q.sentence?`<div class="en" style="text-align:left">${hl(w)}</div>`:''}
+        ${fileRef(w)}
+        <div class="fbact"><div class="says">${spk(w.a,w.a)}${spk(w.b,w.b)}${q.sentence?spk(w.s,'الجملة'):''}</div>
+        <button class="btn" id="next" type="button">${i+1<total?'التالي':'عرض النتيجة'}</button></div></div>`;
+      const nx=$('#next');nx.onclick=()=>{i++;i<total?render():results()};nx.focus();
+    };
+    if(q.mode==='choice'){
+      document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(q.options[b.dataset.j],b));
+      keyHandler=e=>{if(done)return;const n=+e.key;if(n>=1&&n<=q.options.length){const b=document.querySelector(`.opt[data-j="${n-1}"]`);answer(q.options[n-1],b)}};
+    }else{
+      $('#wf').onsubmit=e=>{e.preventDefault();const v=$('#ans').value.trim();if(!v){$('#ans').focus();return}answer(v)};
+      $('#idk').onclick=()=>answer('');
+      $('#ans').focus();
+    }
+  }
+  function results(){
+    const pct=total?Math.round(score/total*100):0;
+    const msg=pct===100?'ممتاز! ولا غلطة':pct>=80?'شغل قوي، راجع الأخطاء البسيطة':pct>=50?'زين، راجع أخطاءك وجرّب نموذج جديد':'تحتاج مراجعة، افتح جدول الكلمات وارجع';
+    const list=wrong.length?`<div class="mlist">${wrong.map(({q,v})=>`<div class="mitem">
+        <div class="mtop"><span class="qtag">${q.tag}</span></div>
+        <div class="mq"><bdi>${esc(q.promptText)}</bdi></div>
+        <div class="yours">إجابتك: <bdi>${v?esc(v):'—'}</bdi></div>
+        <div class="corr">الصحيح: <bdi>${esc(q.answer)}</bdi></div>
+        ${q.sentence?`<div class="en" style="text-align:left;font-size:.88rem">${hl(q.w)}</div>`:''}
+        ${fileRef(q.w)}</div>`).join('')}</div>`:`<div class="empty">ما عندك أي خطأ في هذا النموذج</div>`;
+    shell(o.title,'النتيجة',`<div class="score"><div class="big">${score}/${total}</div><div class="pct">${pct}%</div><p>${msg}</p></div>
+      <h3 class="rh">في إيش أخطأت (${wrong.length})</h3>${list}
+      <div class="actions"><button class="btn" id="again">نموذج جديد بترتيب مختلف</button><button class="btn ghost" id="set">تغيير الإعدادات</button></div>`);
+    $('#again').onclick=()=>runQuiz(o);$('#set').onclick=o.settings;
+  }
+  if(!total){toast('النطاق فاضي');return o.settings()}
+  render();
+}
+
+/* ---------- pages ---------- */
+const MENU=[
+  ['chain','تحدي آخر حرف','سلسلة مرادفات بالكتابة','t → t'],
+  ['quiz','الاختبار التدريبي','ترجمة ومرادفات، كتابة أو اختيارات','A · ع'],
+  ['sentences','اختبار الجمل','أكمل الفراغ من جمل الملف','( __ )'],
+  ['spelling','اختبار الإملاء','اختر التهجئة الصحيحة','c·o·m'],
+  ['full','الاختبار الشامل','جمل وإملاء واختيارات معاً','∑'],
+  ['words','جدول الكلمات','الكلمات والجمل مع النطق','50'],
+];
+function home(){
+  keyHandler=null;
+  const cur=store.get('accent','emerald');
+  app.innerHTML=`<main class="card">
+    <div class="brand"><h1>عمر محمد وضاح</h1><div class="dua"><span>لا تنسونا من دعواتكم</span></div>
+    <p class="intro">تدريب واختبار ٥٠ فعل أساسي لـ IELTS و TOEFL</p></div>
+    <nav class="menu">${MENU.map(([h,t,s,g])=>`<a class="mi" href="#${h}"><span class="glyph en">${g}</span><span class="tx"><b>${t}</b><small>${s}</small></span></a>`).join('')}</nav>
+    <div class="colors"><span class="lbl">لون الواجهة</span><div class="swatches">${PALETTES.map(([id,n,c])=>`<button type="button" class="sw" style="--c:${c}" data-acc="${id}" aria-label="${n}" title="${n}" aria-pressed="${id===cur}"></button>`).join('')}</div></div>
+  </main>`;
+  document.querySelectorAll('.sw').forEach(b=>b.onclick=()=>{applyAccent(b.dataset.acc);document.querySelectorAll('.sw').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+}
+
+function quizPage(){
+  const S=store.get('set:quiz',{from:1,to:50,mode:'choice',level:'std',dir:'mix'});
+  const dirs=l=>l==='std'?[['en-ar','إنجليزي ← عربي'],['ar-en','عربي ← إنجليزي'],['mix','ملخبط']]:[['a-b','من A إلى B'],['b-a','من B إلى A'],['mix','ملخبط']];
+  shell('الاختبار التدريبي','اختبار الكلمات والترجمة. اختر النطاق وطريقة الأسئلة والمستوى.',`
+    ${rangeHTML('q',S)}
+    <fieldset class="field"><legend>نوع الأسئلة</legend>${seg('mode',[['choice','اختيارات'],['write','مقالي (كتابة)']],S.mode)}</fieldset>
+    <fieldset class="field"><legend>المستوى</legend>${seg('level',[['std','عادي'],['pro','محترف']],S.level)}
+      <p class="note" id="lvnote"></p></fieldset>
+    <fieldset class="field"><legend>اتجاه السؤال</legend><div id="dirbox"></div></fieldset>
+    <button class="btn block" id="go">ابدأ الاختبار</button>`);
+  bindRange('q');
+  const upd=(keep)=>{const l=val('level');const d=dirs(l);const cur=keep&&d.some(x=>x[0]===keep)?keep:'mix';$('#dirbox').innerHTML=seg('dir',d,cur);
+    $('#lvnote').textContent=l==='std'?'العمود A مع الترجمة العربية فقط.':'بدون معاني عربية: العمود A مع مرادفه في العمود B.'};
+  upd(S.dir);
+  document.querySelectorAll('input[name="level"]').forEach(r=>r.onchange=()=>upd());
+  $('#go').onclick=()=>{
+    const r=getRange('q'),mode=val('mode'),level=val('level'),dir=val('dir');
+    store.set('set:quiz',{from:r.from,to:r.to,mode,level,dir});
+    const pool=level==='std'?['en-ar','ar-en']:['a-b','b-a'];
+    runQuiz({title:'الاختبار التدريبي',sub:`${level==='std'?'عادي':'محترف'} · ${mode==='choice'?'اختيارات':'كتابة'} · ${R(r.from,r.to)}`,settings:quizPage,
+      build:()=>orderNoRepeat(r.words,'quiz').map(w=>mkTrans(w,dir==='mix'?pick(pool):dir,mode))});
+  };
+}
+function sentPage(){
+  const S=store.get('set:sent',{from:1,to:50});
+  shell('اختبار الجمل','جملة من الملف والكلمة المغمّقة مخفية. اختر الكلمة الصحيحة من ٤ كلمات موجودة في جمل الملف.',`
+    <div class="example en">Reading ( ______ ) vocabulary knowledge.</div>
+    ${rangeHTML('s',S)}<button class="btn block" id="go">ابدأ الاختبار</button>`);
+  bindRange('s');
+  $('#go').onclick=()=>{const r=getRange('s');store.set('set:sent',{from:r.from,to:r.to});
+    runQuiz({title:'اختبار الجمل',sub:`النطاق ${R(r.from,r.to)}`,settings:sentPage,build:()=>orderNoRepeat(r.words,'sent').map(mkSent)})};
+}
+function spellPage(){
+  const S=store.get('set:spell',{from:1,to:50,level:'std'});
+  shell('اختبار الإملاء','٤ تهجئات متشابهة جداً وواحدة فقط صحيحة.',`
+    ${rangeHTML('p',S)}
+    <fieldset class="field"><legend>المستوى</legend>${seg('level',[['std','عادي'],['pro','محترف']],S.level)}
+    <p class="note">العادي: نعطيك الترجمة وتختار كلمة العمود A. المحترف: نعطيك الكلمة وترجمتها وتختار مرادفها بالتهجئة الصحيحة.</p></fieldset>
+    <button class="btn block" id="go">ابدأ الاختبار</button>`);
+  bindRange('p');
+  $('#go').onclick=()=>{const r=getRange('p'),level=val('level');store.set('set:spell',{from:r.from,to:r.to,level});
+    runQuiz({title:'اختبار الإملاء',sub:`${level==='std'?'عادي':'محترف'} · ${R(r.from,r.to)}`,settings:spellPage,build:()=>orderNoRepeat(r.words,'spell').map(w=>mkSpell(w,level))})};
+}
+function fullPage(){
+  const S=store.get('set:full',{from:1,to:50,level:'std'});
+  shell('الاختبار الشامل','جمل وإملاء وترجمة أو مرادفات، كلها اختيارات وبترتيب جديد كل مرة.',`
+    ${rangeHTML('f',S)}
+    <fieldset class="field"><legend>المستوى</legend>${seg('level',[['std','عادي'],['pro','محترف']],S.level)}</fieldset>
+    <button class="btn block" id="go">ابدأ الاختبار</button>`);
+  bindRange('f');
+  $('#go').onclick=()=>{const r=getRange('f'),level=val('level');store.set('set:full',{from:r.from,to:r.to,level});
+    runQuiz({title:'الاختبار الشامل',sub:`${level==='std'?'عادي':'محترف'} · ${R(r.from,r.to)}`,settings:fullPage,build:()=>{
+      const ws=orderNoRepeat(r.words,'full');const types=shuffle(ws.map((_,i)=>['sent','spell','choice'][i%3]));
+      const pool=level==='std'?['en-ar','ar-en']:['a-b','b-a'];
+      return ws.map((w,i)=>types[i]==='sent'?mkSent(w):types[i]==='spell'?mkSpell(w,level):mkTrans(w,pick(pool),'choice'));
+    }})};
+}
+
+/* ---------- last-letter chain ---------- */
+function chainPage(){
+  const S=store.get('set:chain',{from:1,to:50});
+  shell('تحدي آخر حرف','كتابة فقط. اكتب مرادف الكلمة، وبعدها اكتب كلمة من النطاق تبدأ بآخر حرف من المرادف.',`
+    <div class="example en">help → assist → <b>t</b> → try → attempt → <b>t</b> → …</div>
+    ${rangeHTML('c',S)}<button class="btn block" id="go">ابدأ التحدي</button>`);
+  bindRange('c');
+  $('#go').onclick=()=>{const r=getRange('c');store.set('set:chain',{from:r.from,to:r.to});playChain(r)};
+}
+function playChain(r){
+  const pool=r.words;const used=new Set();const trail=[];const miss=[];
+  let ok=0,cur=null,phase='syn',letter='',started=false;
+  const avail=L=>pool.filter(w=>!used.has(w.n)&&(w.a[0]===L||w.b[0]===L));
+  const shown=()=>cur.shown==='a'?cur.w.a:cur.w.b;
+  const expected=()=>cur.shown==='a'?cur.w.b:cur.w.a;
+  function fresh(note,cls){
+    const un=pool.filter(w=>!used.has(w.n));if(!un.length)return end(note);
+    let w=pick(un);
+    if(!started){const last=store.get('first:chain',null);if(un.length>1&&w.n===last)w=pick(un.filter(x=>x.n!==last));store.set('first:chain',w.n);started=true}
+    cur={w,shown:'a'};phase='syn';render(note,cls);
+  }
+  function render(note,cls){
+    const area=phase==='syn'
+      ?`<p class="qlabel">اكتب مرادف الكلمة</p><div class="qprompt en">${shown()}</div>`
+      :`<p class="qlabel">أعطني كلمة تبدأ بحرف</p><div class="letterbox en">${letter}</div><p class="hint">موجودة في النطاق ${R(r.from,r.to)}</p>`;
+    shell('تحدي آخر حرف',`النطاق ${R(r.from,r.to)}`,`
+      <div class="progress"><i style="width:${used.size/pool.length*100}%"></i></div>
+      <div class="qmeta"><span>باقي ${pool.length-used.size} من ${pool.length}</span><span>صح ${ok} · أخطاء ${miss.length}</span></div>
+      ${trail.length?`<div class="trail">${trail.slice(-6).map(t=>`<span class="link${t.ok?'':' bad'}">${t.from} → ${t.to}</span>`).join('')}</div>`:''}
+      <p class="msg ${cls||''}" id="msg" role="status">${note||''}</p>
+      ${area}
+      <form class="write" id="cf" autocomplete="off"><input id="ans" dir="ltr" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="${phase==='syn'?'synonym…':'a word starting with '+letter+'…'}"><button class="btn">تحقق</button></form>
+      <div class="under">${phase==='letter'?`<button type="button" class="btn ghost sm" id="none">❌ لا يوجد</button>`:`<button type="button" class="btn ghost sm" id="idk">ما أعرف</button>`}
+      <button type="button" class="btn ghost sm" id="stop">إنهاء وعرض النتيجة</button></div>`);
+    $('#ans').focus();
+    $('#cf').onsubmit=e=>{e.preventDefault();const v=normEn($('#ans').value);if(!v)return;phase==='syn'?doSyn(v):doLetter(v)};
+    if($('#idk'))$('#idk').onclick=()=>doSyn('');
+    if($('#none'))$('#none').onclick=doNone;
+    $('#stop').onclick=()=>end();
+  }
+  const flash=(m,c)=>{const el=$('#msg');el.className='msg '+c;el.innerHTML=m;const i=$('#ans');i.select();i.focus()};
+  function doSyn(v){
+    const exp=expected();const good=v===exp;
+    used.add(cur.w.n);trail.push({from:shown(),to:exp,ok:good});
+    if(good)ok++;else miss.push({kind:'syn',w:cur.w,prompt:shown(),v,answer:exp});
+    letter=exp.slice(-1);
+    const head=good?`صح! آخر حرف في <span class="en">${exp}</span> هو <b class="en">${letter}</b>`:`خطأ، المرادف الصحيح <b class="en">${exp}</b> وآخر حرف فيه <b class="en">${letter}</b>`;
+    if(!avail(letter).length)return fresh(`${head}. ما بقي في النطاق كلمة تبدأ بحرف <b class="en">${letter}</b>، انتقلنا لكلمة جديدة.`,good?'good':'bad');
+    phase='letter';render(head,good?'good':'bad');
+  }
+  function doLetter(v){
+    if(v[0]!==letter)return flash(`الكلمة لازم تبدأ بحرف <b class="en">${letter}</b>`,'warn');
+    const w=pool.find(w=>!used.has(w.n)&&(w.a===v||w.b===v));
+    if(!w){const u=pool.find(w=>w.a===v||w.b===v);return flash(u?'هذي الكلمة استخدمتها قبل، جرّب غيرها':'هذي الكلمة مو موجودة في النطاق اللي اخترته','bad')}
+    cur={w,shown:w.a===v?'a':'b'};phase='syn';render('صح! الكلمة موجودة في النطاق، الحين اكتب مرادفها','good');
+  }
+  function doNone(){
+    const c=avail(letter);
+    miss.push({kind:'letter',letter,missed:c});
+    fresh(`فيه كلمات تبدأ بحرف <b class="en">${letter}</b>: <span class="en">${c.map(w=>w.a[0]===letter?w.a:w.b).join(', ')}</span>. انتقلنا لكلمة جديدة.`,'bad');
+  }
+  function end(note){
+    const total=ok+miss.filter(m=>m.kind==='syn').length;
+    const list=miss.length?`<div class="mlist">${miss.map(m=>m.kind==='syn'
+      ?`<div class="mitem"><div class="mtop"><span class="qtag">مرادف</span></div><div class="mq en">${m.prompt}</div>
+        <div class="yours">إجابتك: <bdi>${m.v||'—'}</bdi></div><div class="corr">الصحيح: <bdi>${m.answer}</bdi></div>${fileRef(m.w)}</div>`
+      :`<div class="mitem"><div class="mtop"><span class="qtag">حرف <span class="en">${m.letter}</span></span></div>
+        <div>اخترت «لا يوجد» وكان فيه:</div><div class="corr en">${m.missed.map(w=>w.a[0]===m.letter?w.a:w.b).join(', ')}</div></div>`).join('')}</div>`
+      :`<div class="empty">ما عندك أي خطأ</div>`;
+    shell('تحدي آخر حرف','النتيجة',`${note?`<p class="msg">${note}</p>`:''}<div class="score"><div class="big">${ok}/${total}</div><div class="pct">مرادفات صحيحة · غطّيت ${used.size} من ${pool.length} كلمة</div>
+      ${trail.length?`<div class="trail" style="margin-top:14px">${trail.map(t=>`<span class="link${t.ok?'':' bad'}">${t.from} → ${t.to}</span>`).join('')}</div>`:''}</div>
+      <h3 class="rh">في إيش أخطأت (${miss.length})</h3>${list}
+      <div class="actions"><button class="btn" id="again">تحدي جديد</button><button class="btn ghost" id="set">تغيير النطاق</button></div>`);
+    $('#again').onclick=()=>playChain(r);$('#set').onclick=chainPage;
+  }
+  fresh();
+}
+
+/* ---------- words table ---------- */
+function wordsPage(){
+  shell('جدول الكلمات','اضغط على السماعة لسماع الكلمة أو الجملة.',`
+    <div class="tools"><input id="q" type="search" placeholder="ابحث بالإنجليزي أو العربي…"></div>
+    <div class="wlist"><div class="wrow whead"><span>#</span><span>A</span><span>الترجمة</span><span>B</span><span>Example sentence</span></div><div id="rows"></div></div>
+    <p class="count" id="cnt"></p>`,true);
+  const draw=f=>{
+    const nf=normAr(f),ef=f.toLowerCase().trim();
+    const list=WORDS.filter(w=>!f.trim()||w.a.includes(ef)||w.b.includes(ef)||w.s.toLowerCase().includes(ef)||(nf&&normAr(w.t).includes(nf))||String(w.n)===ef);
+    $('#rows').innerHTML=list.map(w=>`<div class="wrow"><span class="num">${w.n}</span>
+      <div class="cell a">${spk(w.a)}<span class="en">${w.a}</span></div>
+      <div class="cell t">${w.t}</div>
+      <div class="cell b">${spk(w.b)}<span class="en">${w.b}</span></div>
+      <div class="cell s"><span>${hl(w)}</span>${spk(w.s)}</div></div>`).join('');
+    $('#cnt').textContent=list.length?`${list.length} كلمة`:'ما فيه نتائج';
+  };
+  draw('');$('#q').oninput=e=>draw(e.target.value);
+}
+
+/* ---------- router ---------- */
+const ROUTES={'':home,chain:chainPage,quiz:quizPage,sentences:sentPage,spelling:spellPage,full:fullPage,words:wordsPage};
+function route(){try{speechSynthesis.cancel()}catch(e){}(ROUTES[location.hash.slice(1)]||home)();window.scrollTo(0,0)}
+addEventListener('hashchange',route);
+route();
+</script>
+
+</body></html>

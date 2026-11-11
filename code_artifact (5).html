@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة عمر محمد وضاح | تدريب كلمات الإنجليزي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --bg-from: #0b1120;
+            --bg-to: #1e1b4b;
+            --border-color: rgba(99, 102, 241, 0.35);
+        }
+
+        [data-theme="indigo"] {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --bg-from: #0b1120;
+            --bg-to: #1e1b4b;
+            --border-color: rgba(99, 102, 241, 0.4);
+        }
+        [data-theme="emerald"] {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --bg-from: #071714;
+            --bg-to: #064e3b;
+            --border-color: rgba(16, 185, 129, 0.4);
+        }
+        [data-theme="amber"] {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --primary-light: #fbbf24;
+            --bg-from: #181106;
+            --bg-to: #451a03;
+            --border-color: rgba(245, 158, 11, 0.4);
+        }
+        [data-theme="rose"] {
+            --primary: #f43f5e;
+            --primary-dark: #e11d48;
+            --primary-light: #fb7185;
+            --bg-from: #19080d;
+            --bg-to: #4c0519;
+            --border-color: rgba(244, 63, 94, 0.4);
+        }
+        [data-theme="cyan"] {
+            --primary: #06b6d4;
+            --primary-dark: #0891b2;
+            --primary-light: #22d3ee;
+            --bg-from: #071318;
+            --bg-to: #083344;
+            --border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at top, var(--bg-to), var(--bg-from) 75%);
+            min-height: 100vh;
+            color: #f8fafc;
+            transition: background 0.4s ease;
+        }
+
+        .en-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .main-card {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1.5px solid var(--border-color);
+            box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        .theme-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transition: all 0.2s ease;
+        }
+        .theme-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .theme-text {
+            color: var(--primary-light);
+        }
+
+        .choice-btn {
+            background: rgba(30, 41, 59, 0.85);
+            border: 1.5px solid rgba(148, 163, 184, 0.22);
+            transition: all 0.15s ease;
+        }
+        .choice-btn:hover:not(:disabled) {
+            border-color: var(--primary-light);
+            background: rgba(51, 65, 85, 0.92);
+        }
+        .choice-correct {
+            background: rgba(16, 185, 129, 0.25) !important;
+            border-color: #10b981 !important;
+            color: #6ee7b7 !important;
+        }
+        .choice-wrong {
+            background: rgba(239, 68, 68, 0.25) !important;
+            border-color: #ef4444 !important;
+            color: #fca5a5 !important;
+        }
+    </style>
+</head>
+<body data-theme="indigo" class="p-4 sm:p-6 flex items-center justify-center min-h-screen">
+
+    <!-- المربع الرئيسي في المنتصف -->
+    <div class="w-full max-w-2xl my-auto">
+
+        <!-- =================================================================== -->
+        <!-- 1. الصفحة الرئيسية -->
+        <!-- =================================================================== -->
+        <section id="page-home" class="main-card rounded-3xl p-6 sm:p-8 text-center space-y-6">
+            
+            <!-- شريط الألوان العلوي البسيط -->
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-xs font-bold text-slate-400 ml-1">اللون:</span>
+                <button onclick="setTheme('indigo')" id="theme-indigo" class="w-6 h-6 rounded-full bg-indigo-500 ring-2 ring-white ring-offset-2 ring-offset-slate-900 transition"></button>
+                <button onclick="setTheme('emerald')" id="theme-emerald" class="w-6 h-6 rounded-full bg-emerald-500 transition"></button>
+                <button onclick="setTheme('amber')" id="theme-amber" class="w-6 h-6 rounded-full bg-amber-500 transition"></button>
+                <button onclick="setTheme('rose')" id="theme-rose" class="w-6 h-6 rounded-full bg-rose-500 transition"></button>
+                <button onclick="setTheme('cyan')" id="theme-cyan" class="w-6 h-6 rounded-full bg-cyan-500 transition"></button>
+            </div>
+
+            <!-- الاسم والدعاء -->
+            <div class="space-y-2 py-2 border-b border-slate-800">
+                <h1 class="text-2xl sm:text-3xl font-black text-white">
+                    إعداد: <span class="theme-text">عمر محمد وضاح</span>
+                </h1>
+                <p class="text-sm font-bold text-amber-300">
+                    🤍 لا تنسونا من صالح دعواتكم 🤍
+                </p>
+            </div>
+
+            <!-- أزرار الانتقال للأقسام المستقلة -->
+            <div class="space-y-3 text-right">
+
+                <!-- 1. الاختبار الشامل -->
+                <button onclick="openSetupWithPreset('comprehensive')" class="w-full p-4 sm:p-5 rounded-2xl bg-gradient-to-l from-indigo-950/90 to-slate-900/90 hover:from-indigo-900/80 border-2 border-indigo-500/50 hover:border-indigo-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-base sm:text-lg font-black text-white group-hover:text-indigo-300 transition flex items-center gap-2">
+                            <span>🏆 الاختبار الشامل (كله خيارات)</span>
+                            <span class="text-[11px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">جديد</span>
+                        </div>
+                        <p class="text-xs text-slate-300">
+                            العادي (سبلنق وترجمة العمود A بدون جمل) • المحترف (شامل مع الجمل والمرادفات)
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-indigo-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+                <!-- 2. الاختبار التدريبي الاعتيادي -->
+                <button onclick="openSetupWithPreset('vocab')" class="w-full p-4 sm:p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-emerald-500/40 hover:border-emerald-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-base sm:text-lg font-black text-white group-hover:text-emerald-300 transition">
+                            🎯 اختبار الكلمات والترجمة (مقالي / خيارات)
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            العادي (عربي ⇄ إنجليزي للعمود A فقط) • المحترف (المرادفات A ⇄ B)
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-emerald-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+                <!-- 3. اختبار الجمل + 4. اختبار السبلنق في صف مزدوج مرتب -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="openSetupWithPreset('sentences')" class="p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-purple-500/40 hover:border-purple-400 transition flex items-center justify-between group text-right">
+                        <div class="space-y-1">
+                            <div class="text-base font-black text-white group-hover:text-purple-300 transition">
+                                📝 اختبار الجمل
+                            </div>
+                            <p class="text-[11px] text-slate-400">
+                                إكمال فراغ الجملة من 4 كلمات من جمل الملف
+                            </p>
+                        </div>
+                        <i class="ph-bold ph-caret-left text-xl text-purple-400 shrink-0"></i>
+                    </button>
+
+                    <button onclick="openSetupWithPreset('spelling')" class="p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-rose-500/40 hover:border-rose-400 transition flex items-center justify-between group text-right">
+                        <div class="space-y-1">
+                            <div class="text-base font-black text-white group-hover:text-rose-300 transition">
+                                🔤 اختبار السبلنق
+                            </div>
+                            <p class="text-[11px] text-slate-400">
+                                اكتشاف الإملاء الصحيح بين 4 كلمات متشابهة جداً
+                            </p>
+                        </div>
+                        <i class="ph-bold ph-caret-left text-xl text-rose-400 shrink-0"></i>
+                    </button>
+                </div>
+
+                <!-- 5. تحدي آخر حرف -->
+                <button onclick="openPage('chain')" class="w-full p-4 sm:p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-amber-500/40 hover:border-amber-400 transition flex items-center justify-between group">
+                    <div class="space-y-1">
+                        <div class="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition">
+                            🔥 تحدي آخر حرف (كتابة)
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            الكلمة ⬅ مرادفها ⬅ كلمة تبدأ بآخر حرف (بداية عشوائية متجددة)
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-amber-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+                <!-- 6. جدول الـ 50 كلمة والناطق -->
+                <button onclick="openPage('dictionary')" class="w-full p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border-2 border-sky-500/40 hover:border-sky-400 transition flex items-center justify-between group">
+                    <div class="space-y-0.5">
+                        <div class="text-base font-black text-white group-hover:text-sky-300 transition">
+                            📖 جدول الـ 50 كلمة والجمَل والناطق الصوتي
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            استعراض الكلمات مع الجمل والنطق الصوتي العادي والبطيء
+                        </p>
+                    </div>
+                    <i class="ph-bold ph-caret-left text-2xl text-sky-400 group-hover:-translate-x-1 transition"></i>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 2. صفحة تحدي آخر حرف (مع نموذج عشوائي متجدد في كل مرة) -->
+        <!-- =================================================================== -->
+        <section id="page-chain" class="hidden main-card rounded-3xl p-6 sm:p-8 space-y-6">
+            
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <span id="chainModelBadge" class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30">نموذج #1</span>
+                    <span class="text-slate-400">من:</span>
+                    <input type="number" id="chainStart" value="1" min="1" max="50" class="w-12 bg-slate-900 border border-slate-700 rounded-lg py-1 text-center text-white en-font">
+                    <span class="text-slate-400">إلى:</span>
+                    <input type="number" id="chainEnd" value="20" min="1" max="50" class="w-12 bg-slate-900 border border-slate-700 rounded-lg py-1 text-center text-white en-font">
+                    <button onclick="startChainChallenge()" class="px-3 py-1 rounded-lg bg-amber-500 text-slate-950 font-black hover:bg-amber-400">
+                        نموذج جديد 🔄
+                    </button>
+                </div>
+            </div>
+
+            <!-- إشعار الانتقال التلقائي في حال عدم وجود كلمة تبدأ بالحرف -->
+            <div id="chainNotice" class="hidden p-3.5 rounded-2xl bg-amber-500/15 border border-amber-400/40 text-amber-200 text-xs sm:text-sm font-bold text-center"></div>
+
+            <!-- صندوق السؤال الكتابي -->
+            <div class="text-center space-y-5 py-2">
+                <div id="chainStepTitle" class="text-sm font-bold text-amber-400"></div>
+
+                <!-- الكلمة أو الحرف المطلوب -->
+                <div id="chainPromptWord" class="py-2"></div>
+
+                <!-- حقل الكتابة -->
+                <div class="max-w-md mx-auto space-y-3">
+                    <div class="flex gap-2">
+                        <input type="text" id="chainInput" dir="ltr" autocomplete="off" placeholder="اكتب الكلمة بالإنجليزي..."
+                            class="w-full en-font bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 rounded-2xl px-4 py-3.5 text-center text-lg font-extrabold text-white focus:outline-none">
+                        <button onclick="checkChainInput()" class="theme-btn px-6 py-3.5 rounded-2xl font-black text-white shrink-0">
+                            تحقق
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-3 pt-1">
+                        <button id="chainNoWordBtn" onclick="handleChainNoWordClick()" class="hidden px-4 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-extrabold">
+                            ❌ لا يوجد كلمة بهذا الحرف
+                        </button>
+                        <button onclick="skipCurrentChainStep()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
+                            💡 أظهر الإجابة
+                        </button>
+                    </div>
+                </div>
+
+                <div id="chainFeedback" class="hidden p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto"></div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 3. صفحة إعداد الاختبارات -->
+        <!-- =================================================================== -->
+        <section id="page-quiz-setup" class="hidden main-card rounded-3xl p-6 sm:p-8 space-y-5">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+                <h2 id="setupPageTitle" class="text-base sm:text-lg font-black text-white">إعداد الاختبار</h2>
+            </div>
+
+            <!-- شريط تبديل سريع لنوع الاختبار -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="setQuizCategory('comprehensive')" id="cat-comprehensive" class="p-2.5 rounded-xl border-2 text-xs font-black transition">
+                    🏆 الشامل
+                </button>
+                <button onclick="setQuizCategory('vocab')" id="cat-vocab" class="p-2.5 rounded-xl border-2 text-xs font-black transition">
+                    🎯 الكلمات والترجمة
+                </button>
+                <button onclick="setQuizCategory('sentences')" id="cat-sentences" class="p-2.5 rounded-xl border-2 text-xs font-black transition">
+                    📝 الجمل
+                </button>
+                <button onclick="setQuizCategory('spelling')" id="cat-spelling" class="p-2.5 rounded-xl border-2 text-xs font-black transition">
+                    🔤 السبلنق
+                </button>
+            </div>
+
+            <!-- 1. اختيار المستوى -->
+            <div id="setupLevelSection" class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-300">1. اختر المستوى:</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="setSetupLevel('standard')" id="btn-lvl-standard" class="p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/15 text-right transition">
+                        <div class="font-black text-white text-sm sm:text-base">المستوى العادي (Standard)</div>
+                        <div id="desc-lvl-standard" class="text-xs text-slate-300 mt-0.5">العمود A والترجمة فقط (بدون جمل)</div>
+                    </button>
+                    <button onclick="setSetupLevel('pro')" id="btn-lvl-pro" class="p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition">
+                        <div class="font-black text-white text-sm sm:text-base">المستوى المحترف (Pro)</div>
+                        <div id="desc-lvl-pro" class="text-xs text-slate-300 mt-0.5">العمود A و B والمرادفات</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- خيار فرعي للمستوى العادي في اختبار الكلمات: (إنجليزي -> عربي) أو (عربي -> إنجليزي) أو (ملخبط) -->
+            <div id="standardDirectionBox" class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-emerald-300">اتجاه أسئلة المستوى العادي:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="setStandardDir('en_ar')" id="btn-stddir-en_ar" class="p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white">
+                        إنجليزي ⬅ عربي
+                    </button>
+                    <button onclick="setStandardDir('ar_en')" id="btn-stddir-ar_en" class="p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white">
+                        عربي ⬅ إنجليزي
+                    </button>
+                    <button onclick="setStandardDir('mixed')" id="btn-stddir-mixed" class="p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-500/15 text-center font-bold text-xs text-white">
+                        ملخبط (الاثنين معاً)
+                    </button>
+                </div>
+            </div>
+
+            <!-- خيار فرعي للمحترف في اختبار الكلمات: A->B أو B->A أو ملخبط -->
+            <div id="proDirectionBox" class="hidden space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-amber-300">اتجاه أسئلة المحترف:</label>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="setProDir('ab')" id="btn-dir-ab" class="p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white">
+                        العمود A ⬅ B
+                    </button>
+                    <button onclick="setProDir('ba')" id="btn-dir-ba" class="p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white">
+                        العمود B ⬅ A
+                    </button>
+                    <button onclick="setProDir('mixed')" id="btn-dir-mixed" class="p-2.5 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-center font-bold text-xs text-white">
+                        ملخبط (A ⇄ B)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. نوع الأسئلة (مقالي أو خيارات) -->
+            <div id="setupStyleSection" class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-300">2. طريقة الإجابة:</label>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="setSetupStyle('choices')" id="btn-style-choices" class="p-3 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white">
+                        🔢 اختيارات (4 خيارات)
+                    </button>
+                    <button onclick="setSetupStyle('written')" id="btn-style-written" class="p-3 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white">
+                        ✍️ مقالي (كتابة)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. تحديد النطاق -->
+            <div class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-300">حدد نطاق الكلمات (من كم لكم؟):</label>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="setQuizRange(1,5)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 5</button>
+                    <button onclick="setQuizRange(1,10)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 10</button>
+                    <button onclick="setQuizRange(1,20)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 20</button>
+                    <button onclick="setQuizRange(1,50)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold border border-slate-700">1 - 50 (كامل)</button>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <div class="flex items-center gap-2 flex-1 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-bold">من:</span>
+                        <input type="number" id="quizStartInput" value="1" min="1" max="50" class="w-full bg-transparent text-center font-black text-white en-font focus:outline-none">
+                    </div>
+                    <div class="flex items-center gap-2 flex-1 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-bold">إلى:</span>
+                        <input type="number" id="quizEndInput" value="10" min="1" max="50" class="w-full bg-transparent text-center font-black text-white en-font focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="launchQuiz(false)" class="theme-btn w-full py-4 rounded-2xl font-black text-base text-white shadow-lg">
+                إنشاء نموذج جديد وبدء الاختبار 🚀
+            </button>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 4. صفحة الأسئلة الفعلية + شاشة النتيجة ومراجعة الأخطاء -->
+        <!-- =================================================================== -->
+        <section id="page-quiz-active" class="hidden main-card rounded-3xl p-5 sm:p-8 space-y-5">
+            
+            <!-- شريط علوي -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <button onclick="openPage('quiz-setup')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 flex items-center gap-1">
+                        <i class="ph-bold ph-arrow-right"></i>
+                        <span>الإعدادات</span>
+                    </button>
+                    <span id="qModelBadge" class="px-2.5 py-1 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-black">نموذج #1</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs sm:text-sm font-black">
+                    <span class="text-emerald-400">صح: <span id="qRightCount" class="en-font">0</span></span>
+                    <span class="text-rose-400">خطأ: <span id="qWrongCount" class="en-font">0</span></span>
+                    <span id="qProgressBadge" class="px-2.5 py-1 rounded-lg bg-slate-800 text-white en-font">1 / 10</span>
+                </div>
+            </div>
+
+            <!-- منطقة السؤال -->
+            <div id="quizQuestionArea" class="text-center space-y-5 py-2">
+                <!-- نوع السؤال الحالي -->
+                <div class="flex items-center justify-center">
+                    <span id="qTypePill" class="px-3 py-1 rounded-full text-xs font-extrabold bg-slate-800 text-amber-300 border border-slate-700"></span>
+                </div>
+
+                <div id="qInstruction" class="text-xs sm:text-sm font-bold text-slate-300"></div>
+
+                <!-- الكلمة أو الجملة المطلوب الإجابة عنها -->
+                <div id="qWordDisplay" class="py-1"></div>
+
+                <!-- الوضع المقالي (كتابة) -->
+                <div id="qWrittenBox" class="hidden max-w-md mx-auto space-y-3">
+                    <div class="flex gap-2">
+                        <input type="text" id="qWrittenInput" autocomplete="off"
+                            class="w-full bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 rounded-2xl px-4 py-3.5 text-center text-lg font-extrabold text-white focus:outline-none">
+                        <button onclick="submitWrittenQuiz()" id="qSubmitBtn" class="theme-btn px-6 py-3.5 rounded-2xl font-black text-white shrink-0">
+                            تحقق
+                        </button>
+                    </div>
+                </div>
+
+                <!-- وضع الاختيارات (4 خيارات) -->
+                <div id="qChoicesBox" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto"></div>
+
+                <!-- نتيجة السؤال مع إظهار كيف مكتوب في الملف نصاً -->
+                <div id="qSimpleFeedback" class="hidden p-4 rounded-2xl font-bold text-sm sm:text-base max-w-lg mx-auto leading-relaxed"></div>
+
+                <!-- زر التالي -->
+                <button id="qNextBtn" onclick="goNextQuizItem()" class="hidden theme-btn px-10 py-3 rounded-2xl font-black text-white mx-auto">
+                    السؤال التالي ⬅
+                </button>
+            </div>
+
+            <!-- شاشة النتيجة النهائية + مراجعة الأخطاء -->
+            <div id="quizSummaryArea" class="hidden space-y-6 py-4">
+                <div class="text-center space-y-3">
+                    <div class="text-5xl">🏆</div>
+                    <h3 class="text-2xl font-black text-white">انتهى الاختبار!</h3>
+                    <div id="qFinalScoreText" class="text-lg font-black text-emerald-400"></div>
+                    <p id="qModelCompletedNote" class="text-xs font-bold text-slate-400"></p>
+                </div>
+
+                <!-- أزرار الإعادة بنموذج جديد أو إعادة الأخطاء فقط -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="launchQuiz(false)" class="theme-btn px-6 py-3 rounded-2xl font-black text-white text-sm">
+                        إنشاء نموذج جديد مختلف 🔄
+                    </button>
+                    <button id="retryMistakesBtn" onclick="launchMistakesQuiz()" class="hidden px-6 py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 font-black text-white text-sm">
+                        🎯 اختبرني في أخطائي فقط
+                    </button>
+                    <button onclick="openPage('quiz-setup')" class="px-5 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 font-bold text-slate-200 text-sm">
+                        تغيير الإعدادات
+                    </button>
+                </div>
+
+                <!-- قسم مراجعة الأخطاء: (في إيش أخطأت) -->
+                <div id="mistakesReviewSection" class="space-y-3 pt-3 border-t border-slate-800">
+                    <h4 id="mistakesHeaderTitle" class="text-base font-black text-rose-400 text-right"></h4>
+                    <div id="mistakesListContainer" class="space-y-2.5 max-h-96 overflow-y-auto pr-1"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- 5. صفحة جدول الـ 50 كلمة والجمَل والناطق (مستقلة) -->
+        <!-- =================================================================== -->
+        <section id="page-dictionary" class="hidden main-card rounded-3xl p-5 sm:p-7 space-y-4">
+            
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                <button onclick="openPage('home')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </button>
+                <input type="text" id="dictSearchInput" oninput="renderDictionary()" placeholder="ابحث عن كلمة أو معنى أو رقم..."
+                    class="w-full sm:w-64 bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs font-bold text-white focus:outline-none">
+            </div>
+
+            <!-- أزرار إخفاء الأعمدة للمراجعة -->
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+                <span class="text-slate-400 font-bold">إخفاء للمراجعة:</span>
+                <button onclick="toggleDictCol('a')" id="toggle-col-a" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">العمود A</button>
+                <button onclick="toggleDictCol('tr')" id="toggle-col-tr" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">الترجمة</button>
+                <button onclick="toggleDictCol('b')" id="toggle-col-b" class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 font-bold text-slate-300">العمود B</button>
+            </div>
+
+            <div id="dictListContainer" class="space-y-2.5 max-h-[480px] overflow-y-auto pr-1"></div>
+        </section>
+
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. بيانات الـ 50 كلمة كاملة مع الجمل والكلمات المغمقة في الجمل ومعانيها القريبة
+        // =========================================================================
+        const WORDS_DATA = [
+            { id: 1, a: "help", tr: "يساعد", acceptAr: ["يساعد", "مساعده", "يعين", "يعاون", "مسانده", "يساند", "عون"], b: "assist", sentence: "Teachers assist students with difficult tasks.", sentenceWord: "assist" },
+            { id: 2, a: "show", tr: "يوضح", acceptAr: ["يوضح", "يبين", "يعرض", "يظهر", "يكشف", "توضيح", "اظهار"], b: "demonstrate", sentence: "The results demonstrate clear progress.", sentenceWord: "demonstrate" },
+            { id: 3, a: "start", tr: "يبدأ", acceptAr: ["يبدأ", "يبدا", "بدايه", "يشرع", "ينطلق", "يفتتح"], b: "commence", sentence: "The examination commences at nine.", sentenceWord: "commences" },
+            { id: 4, a: "explain", tr: "يوضح", acceptAr: ["يوضح", "يشرح", "يفسر", "يبين", "توضيح", "شرح"], b: "clarify", sentence: "The teacher clarified the instructions.", sentenceWord: "clarified" },
+            { id: 5, a: "choose", tr: "يختار", acceptAr: ["يختار", "ينتقي", "اختيار", "يحدد", "يفضل"], b: "select", sentence: "Students selected relevant articles.", sentenceWord: "selected" },
+            { id: 6, a: "improve", tr: "يحسن", acceptAr: ["يحسن", "يطور", "تحسين", "تطوير", "يرفع", "يجود"], b: "enhance", sentence: "Reading enhances vocabulary knowledge.", sentenceWord: "enhances" },
+            { id: 7, a: "change", tr: "يعدل", acceptAr: ["يعدل", "يغير", "تعديل", "تغيير", "يبدل", "يحول"], b: "modify", sentence: "Researchers modified the experiment.", sentenceWord: "modified" },
+            { id: 8, a: "reduce", tr: "يقلل إلى أدنى حد", acceptAr: ["يقلل", "يقلل الى ادنى حد", "يخفض", "ينقص", "تقليل", "تخفيض", "يحد من", "يقلص"], b: "minimize", sentence: "Schools should minimize unnecessary waste.", sentenceWord: "minimize" },
+            { id: 9, a: "check", tr: "يتحقق من", acceptAr: ["يتحقق", "يتحقق من", "يفحص", "يتأكد", "يتاكد", "يراجع", "يدقق", "تحقق"], b: "verify", sentence: "Scientists verified the information.", sentenceWord: "verified" },
+            { id: 10, a: "try", tr: "يحاول", acceptAr: ["يحاول", "يجرب", "محاوله", "يسعى"], b: "attempt", sentence: "He attempted to solve the problem.", sentenceWord: "attempted" },
+            { id: 11, a: "ask", tr: "يستفسر", acceptAr: ["يستفسر", "يسأل", "يسال", "يتساءل", "استفسار", "سؤال"], b: "inquire", sentence: "She inquired about the course.", sentenceWord: "inquired" },
+            { id: 12, a: "need", tr: "يحتاج / يتطلب", acceptAr: ["يحتاج", "يتطلب", "يستلزم", "يريد", "حاجه"], b: "require", sentence: "Success requires consistent practice.", sentenceWord: "requires" },
+            { id: 13, a: "end", tr: "ينتهي", acceptAr: ["ينتهي", "ينهي", "يختتم", "يختم", "يكمل", "نهايه"], b: "conclude", sentence: "The conference concluded at five.", sentenceWord: "concluded" },
+            { id: 14, a: "keep", tr: "يحتفظ بـ", acceptAr: ["يحتفظ", "يحتفظ ب", "يحفظ", "يبقي", "يصون", "يمسك"], b: "retain", sentence: "Students retain information through practice.", sentenceWord: "retain" },
+            { id: 15, a: "fix", tr: "يصلح", acceptAr: ["يصلح", "يرمم", "اصلاح", "يعالج", "يعدل"], b: "repair", sentence: "The technician repaired the equipment.", sentenceWord: "repaired" },
+            { id: 16, a: "study", tr: "يدرس / يحلل", acceptAr: ["يدرس", "يحلل", "يتعلم", "يبحث", "تحليل", "دراسه"], b: "analyze", sentence: "Scientists analyzed the results.", sentenceWord: "analyzed" },
+            { id: 17, a: "judge", tr: "يقيم", acceptAr: ["يقيم", "يحكم", "تقييم", "يقدر", "يثمن"], b: "evaluate", sentence: "Experts evaluated the new program.", sentenceWord: "evaluated" },
+            { id: 18, a: "recognize", tr: "يتعرف / يحدد", acceptAr: ["يتعرف", "يحدد", "يتعرف على", "يميز", "يدرك", "يعرف"], b: "identify", sentence: "Students identified the main idea.", sentenceWord: "identified" },
+            { id: 19, a: "examine", tr: "يفحص / يحقق", acceptAr: ["يفحص", "يحقق", "يتحرى", "يدرس", "يختبر", "فحص", "تحقيق"], b: "investigate", sentence: "Scientists investigated the problem.", sentenceWord: "investigated" },
+            { id: 20, a: "collect", tr: "يجمع", acceptAr: ["يجمع", "يحشد", "جمع", "يلم", "يكسب"], b: "gather", sentence: "Researchers gathered useful information.", sentenceWord: "gathered" },
+            { id: 21, a: "notice", tr: "يلاحظ / يراقب", acceptAr: ["يلاحظ", "يراقب", "يرصد", "ينتبه", "يشاهد", "ملاحظه"], b: "observe", sentence: "Researchers observed changes in behavior.", sentenceWord: "observed" },
+            { id: 22, a: "search", tr: "يبحث عن", acceptAr: ["يبحث", "يبحث عن", "يسعى", "يفتش", "ينقب", "بحث"], b: "seek", sentence: "Students seek reliable information.", sentenceWord: "seek" },
+            { id: 23, a: "think", tr: "يفكر في", acceptAr: ["يفكر", "يفكر في", "يعتبر", "يتأمل", "يدرس", "يعتقد"], b: "consider", sentence: "We should consider the alternatives.", sentenceWord: "consider" },
+            { id: 24, a: "guess", tr: "يخمن / يقدر", acceptAr: ["يخمن", "يقدر", "يتوقع", "يحسب", "تخمين", "تقدير"], b: "estimate", sentence: "Researchers estimated the total cost.", sentenceWord: "estimated" },
+            { id: 25, a: "sort", tr: "يصنف", acceptAr: ["يصنف", "يرتب", "يفرز", "يقسم", "تصنيف"], b: "classify", sentence: "Scientists classified the samples.", sentenceWord: "classified" },
+            { id: 26, a: "predict", tr: "يتنبأ", acceptAr: ["يتنبأ", "يتنبا", "يتوقع", "يستشرف", "توقع", "تنبؤ"], b: "forecast", sentence: "Experts forecast future demand.", sentenceWord: "forecast" },
+            { id: 27, a: "infer", tr: "يستنتج", acceptAr: ["يستنتج", "يستنبط", "يستخلص", "يدرك", "استنتاج"], b: "deduce", sentence: "Students deduced the answer from the clues.", sentenceWord: "deduced" },
+            { id: 28, a: "affect", tr: "يؤثر في", acceptAr: ["يؤثر", "يوثر", "يؤثر في", "يؤثر على", "تأثير", "تاثير"], b: "influence", sentence: "Technology influences learning habits.", sentenceWord: "influences" },
+            { id: 29, a: "produce", tr: "ينتج / يولد", acceptAr: ["ينتج", "يولد", "يصنع", "يخرج", "انتاج", "توليد"], b: "generate", sentence: "Solar panels generate electricity.", sentenceWord: "generate" },
+            { id: 30, a: "block", tr: "يمنع", acceptAr: ["يمنع", "يحجب", "يعيق", "يسد", "يوقف", "منع"], b: "prevent", sentence: "Security measures prevent unauthorized access.", sentenceWord: "prevent" },
+            { id: 31, a: "ban", tr: "يحظر", acceptAr: ["يحظر", "يمنع", "يحرم", "يجرم", "حظر", "منع"], b: "prohibit", sentence: "The law prohibits smoking indoors.", sentenceWord: "prohibits" },
+            { id: 32, a: "limit", tr: "يقيد", acceptAr: ["يقيد", "يحد", "يحدد", "يحصر", "يقلص", "تقييد"], b: "restrict", sentence: "The school restricts access to some websites.", sentenceWord: "restricts" },
+            { id: 33, a: "control", tr: "ينظم", acceptAr: ["ينظم", "يتحكم", "يضبط", "يدير", "يسيطر", "تنظيم", "تحكم"], b: "regulate", sentence: "The government regulates water use.", sentenceWord: "regulates" },
+            { id: 34, a: "suggest", tr: "يقترح", acceptAr: ["يقترح", "يعرض", "يوصي", "اقتراح"], b: "propose", sentence: "Researchers proposed a new solution.", sentenceWord: "proposed" },
+            { id: 35, a: "apply", tr: "يطبق / ينفذ", acceptAr: ["يطبق", "ينفذ", "يستعمل", "يستخدم", "تطبيق", "تنفيذ"], b: "implement", sentence: "The school implemented the policy.", sentenceWord: "implemented" },
+            { id: 36, a: "ensure", tr: "يضمن", acceptAr: ["يضمن", "يكفل", "يؤكد", "يتأكد", "ضمان"], b: "guarantee", sentence: "Clear procedures guarantee consistency.", sentenceWord: "guarantee" },
+            { id: 37, a: "strengthen", tr: "يعزز", acceptAr: ["يعزز", "يقوي", "يدعم", "يشدد", "تقويه", "تعزيز"], b: "reinforce", sentence: "Practice reinforces learning.", sentenceWord: "reinforces" },
+            { id: 38, a: "remove", tr: "يزيل / يتخلص", acceptAr: ["يزيل", "يتخلص", "يتخلص من", "يحذف", "يمحو", "يبعد", "ازاله"], b: "eliminate", sentence: "The new process eliminated unnecessary steps.", sentenceWord: "eliminated" },
+            { id: 39, a: "announce", tr: "يعلن رسميًا", acceptAr: ["يعلن", "يعلن رسميا", "يصرح", "يذيع", "يكشف", "اعلان"], b: "declare", sentence: "The government declared a holiday.", sentenceWord: "declared" },
+            { id: 40, a: "hint", tr: "يوحي / يلمح", acceptAr: ["يوحي", "يلمح", "يشير", "يرمز", "تلميح"], b: "imply", sentence: "The results imply a need for change.", sentenceWord: "imply" },
+            { id: 41, a: "stress", tr: "يؤكد على", acceptAr: ["يؤكد", "يوئكد", "يؤكد على", "يشدد", "يركز على", "تأكيد"], b: "emphasize", sentence: "The teacher emphasized the key point.", sentenceWord: "emphasized" },
+            { id: 42, a: "mention", tr: "يذكر / يبرز", acceptAr: ["يذكر", "يبرز", "يسلط الضوء", "يشير الى", "يوضح"], b: "highlight", sentence: "The report highlights several challenges.", sentenceWord: "highlights" },
+            { id: 43, a: "display", tr: "يعرض", acceptAr: ["يعرض", "يظهر", "يستعرض", "يبين", "عرض"], b: "exhibit", sentence: "The museum exhibits ancient objects.", sentenceWord: "exhibits" },
+            { id: 44, a: "send", tr: "يرسل / ينقل", acceptAr: ["يرسل", "ينقل", "يبعث", "يبث", "يوصل", "ارسال", "نقل"], b: "transmit", sentence: "The device transmits signals.", sentenceWord: "transmits" },
+            { id: 45, a: "admit", tr: "يعترف / يقر", acceptAr: ["يعترف", "يقر", "يقبل", "يسلم ب", "اعتراف"], b: "acknowledge", sentence: "The researcher acknowledged the limitation.", sentenceWord: "acknowledged" },
+            { id: 46, a: "expect", tr: "يتوقع مسبقا", acceptAr: ["يتوقع", "يتوقع مسبقا", "ينتظر", "يتنبأ", "توقع"], b: "anticipate", sentence: "Experts anticipate further changes.", sentenceWord: "anticipate" },
+            { id: 47, a: "warn", tr: "يحذر", acceptAr: ["يحذر", "ينبه", "ينذر", "تحذير", "تنبيه"], b: "caution", sentence: "Doctors caution patients about the risks.", sentenceWord: "caution" },
+            { id: 48, a: "refuse", tr: "يرفض", acceptAr: ["يرفض", "رفض", "يأبى", "يمتنع", "ينبذ"], b: "reject", sentence: "The committee rejected the proposal.", sentenceWord: "rejected" },
+            { id: 49, a: "approve", tr: "يوافق / يؤيد", acceptAr: ["يوافق", "يؤيد", "يعتمد", "يصدق على", "يدعم", "موافقه"], b: "endorse", sentence: "The board endorsed the proposal.", sentenceWord: "endorsed" },
+            { id: 50, a: "persuade", tr: "يقنع", acceptAr: ["يقنع", "اقناع", "يحث", "يرغب", "يستميل"], b: "convince", sentence: "The evidence convinced the audience.", sentenceWord: "convinced" }
+        ];
+
+        // عداد النماذج لمنع تكرار نفس البداية أبداً
+        let globalModelNumber = 1;
+        let lastQuizFirstKey = null;
+        let lastChainFirstId = null;
+
+        // =========================================================================
+        // 2. التنقل بين الصفحات والألوان والناطق
+        // =========================================================================
+        function openPage(pageId) {
+            ['home', 'chain', 'quiz-setup', 'quiz-active', 'dictionary'].forEach(id => {
+                document.getElementById('page-' + id).classList.add('hidden');
+            });
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+
+            if (pageId === 'chain') startChainChallenge();
+            if (pageId === 'dictionary') renderDictionary();
+        }
+
+        function setTheme(themeName) {
+            document.body.setAttribute('data-theme', themeName);
+            ['indigo', 'emerald', 'amber', 'rose', 'cyan'].forEach(t => {
+                const btn = document.getElementById('theme-' + t);
+                if (t === themeName) {
+                    btn.className = `w-6 h-6 rounded-full bg-${t}-500 ring-2 ring-white ring-offset-2 ring-offset-slate-900 transition`;
+                } else {
+                    btn.className = `w-6 h-6 rounded-full bg-${t}-500 transition`;
+                }
+            });
+        }
+
+        function speakEnglish(text, rate = 0.9) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'en-US';
+            u.rate = rate;
+            window.speechSynthesis.speak(u);
+        }
+
+        // =========================================================================
+        // 3. مولد السبلنق الاحترافي الصعب جداً
+        // =========================================================================
+        const HARD_SPELLING_TRAPS = {
+            "help": ["hlep", "helpe", "halp", "heilp"],
+            "assist": ["asist", "assest", "assisst", "asistt"],
+            "show": ["shwo", "showe", "schow", "shoow"],
+            "demonstrate": ["demostrate", "demonstarte", "demonstrete", "damonstrate"],
+            "start": ["satrt", "strat", "starrt", "stert"],
+            "commence": ["comence", "commense", "commance", "commnce"],
+            "explain": ["expalin", "explian", "explane", "explein"],
+            "clarify": ["clarrify", "clarifiy", "clerify", "clarefy"],
+            "choose": ["chosse", "chooze", "chouse", "chosee"],
+            "select": ["selcet", "sellect", "selecet", "salect"],
+            "improve": ["imporve", "imrpove", "improuve", "imprve"],
+            "enhance": ["enhanse", "enhence", "inhance", "enhnce"],
+            "change": ["chagne", "chaneg", "chainge", "chenge"],
+            "modify": ["modifiy", "modefy", "modiffy", "modfiy"],
+            "reduce": ["reduse", "redcue", "raduce", "reeduce"],
+            "minimize": ["minmize", "minemize", "minimmize", "minimze"],
+            "check": ["chekc", "checck", "chack", "chek"],
+            "verify": ["verfiy", "verifiy", "veriffy", "verefy"],
+            "try": ["trye", "trey", "trry", "triy"],
+            "attempt": ["atempt", "attemt", "atemmpt", "attemp"],
+
+            "ask": ["aks", "assk", "aske", "aesk"],
+            "inquire": ["inqiure", "inquier", "inqure", "innquire"],
+            "need": ["nead", "neeed", "nedd", "nede"],
+            "require": ["reqiure", "requier", "requre", "recquire"],
+            "end": ["edn", "ennd", "ende", "eand"],
+            "conclude": ["conculde", "conclued", "connclude", "conclud"],
+            "keep": ["keap", "kepe", "keeep", "kepp"],
+            "retain": ["retian", "retaine", "ratain", "reetain"],
+            "fix": ["fixe", "fixx", "fiex", "fex"],
+            "repair": ["repiar", "repaire", "reppair", "repare"],
+            "study": ["studey", "sutdy", "studdy", "stady"],
+            "analyze": ["anlayze", "anaylze", "annalyze", "analzye"],
+            "judge": ["juge", "judege", "judg", "jadge"],
+            "evaluate": ["evalaute", "evalueate", "evalluate", "evaluat"],
+            "recognize": ["recgonize", "recongize", "recogize", "recognze"],
+            "identify": ["identfiy", "identifiy", "identiffy", "idantify"],
+            "examine": ["exmaine", "examene", "exammine", "examin"],
+            "investigate": ["investegate", "invistigate", "investgate", "investiagte"],
+            "collect": ["colect", "collcet", "collet", "callect"],
+            "gather": ["gahter", "gathar", "gether", "gatherr"],
+
+            "notice": ["notcie", "notise", "notece", "nottice"],
+            "observe": ["obsreve", "obzerve", "obsarve", "observ"],
+            "search": ["saerch", "serach", "serch", "searsh"],
+            "seek": ["seak", "seke", "seeek", "sekk"],
+            "think": ["thikn", "thnik", "thinck", "thenk"],
+            "consider": ["consdier", "concider", "considar", "conscider"],
+            "guess": ["geuss", "gues", "gess", "gusse"],
+            "estimate": ["estmiate", "estemate", "estimmate", "estimat"],
+            "sort": ["srot", "sorte", "soort", "sourt"],
+            "classify": ["clasify", "classfiy", "classifiy", "classefy"],
+            "predict": ["perdict", "predcit", "pridict", "predickt"],
+            "forecast": ["forcast", "forecsat", "foercast", "forecest"],
+            "infer": ["inefr", "inferr", "infere", "infar"],
+            "deduce": ["deduse", "dedcue", "daduce", "deduice"],
+            "affect": ["afect", "affcet", "affact", "aefect"],
+            "influence": ["influnce", "influance", "infleunce", "inffluence"],
+            "produce": ["porduce", "produse", "prodcue", "pruduce"],
+            "generate": ["genrate", "generete", "genarate", "gennerate"],
+            "block": ["blcok", "bloock", "blok", "bluck"],
+            "prevent": ["pervent", "prevnet", "prevant", "preevnt"],
+
+            "ban": ["bann", "bane", "baan", "bannn"],
+            "prohibit": ["prohbit", "prohibet", "porhibit", "prohibitt"],
+            "limit": ["limti", "limmit", "limet", "limitt"],
+            "restrict": ["restirct", "restrcit", "ristrict", "restict"],
+            "control": ["contorl", "controll", "conrtol", "cantrol"],
+            "regulate": ["regualte", "regullate", "regulete", "reglate"],
+            "suggest": ["sugest", "suggset", "sugget", "suggesst"],
+            "propose": ["porpose", "propse", "propoze", "prapose"],
+            "apply": ["aply", "applly", "aplly", "applye"],
+            "implement": ["implment", "implemant", "impelement", "impelment"],
+            "ensure": ["ensuer", "ennsure", "enshure", "ensur"],
+            "guarantee": ["garantee", "guarentee", "gaurantee", "guarante"],
+            "strengthen": ["strenghten", "strenthen", "strangthen", "strengthern"],
+            "reinforce": ["rienforce", "reinforse", "reinfroce", "rainforce"],
+            "remove": ["remvoe", "remoove", "remuve", "ramove"],
+            "eliminate": ["elminate", "eleminate", "elimnate", "elliminate"],
+            "announce": ["anounce", "announse", "annuonce", "annaunce"],
+            "declare": ["decalre", "declaer", "declaire", "diclare"],
+            "hint": ["hitn", "hintt", "hent", "hinte"],
+            "imply": ["impliy", "implly", "implye", "impel"],
+
+            "stress": ["stres", "sterss", "strees", "strass"],
+            "emphasize": ["empahsize", "emphsize", "emphaize", "emphasze"],
+            "mention": ["meniton", "mentoin", "mantion", "mentian"],
+            "highlight": ["higlight", "highligt", "hilight", "highlite"],
+            "display": ["dipslay", "dispaly", "disply", "desplay"],
+            "exhibit": ["exhbit", "exibit", "exhibet", "exihibit"],
+            "send": ["sedn", "seend", "sened", "sendd"],
+            "transmit": ["trasnmit", "transmitt", "tranmsit", "transmet"],
+            "admit": ["admitt", "addmit", "admet", "amdmit"],
+            "acknowledge": ["aknowledge", "acknowlege", "acknowladge", "acnkowledge"],
+            "expect": ["expcet", "exepct", "expact", "expekt"],
+            "anticipate": ["anticpate", "anticepate", "antisipate", "anticipte"],
+            "warn": ["wran", "warrn", "warne", "worn"],
+            "caution": ["cuation", "cautoin", "causion", "cautian"],
+            "refuse": ["refuze", "refues", "reffuse", "rafuse"],
+            "reject": ["rejcet", "rejecet", "riject", "rejekt"],
+            "approve": ["aprove", "apporve", "approuve", "approv"],
+            "endorse": ["endrose", "endorce", "indorse", "endors"],
+            "persuade": ["pursuade", "persaude", "persuede", "parsuade"],
+            "convince": ["convinse", "convnice", "convence", "connvince"]
+        };
+
+        function generateMisspellings(correctWord) {
+            const w = correctWord.toLowerCase().trim();
+            if (HARD_SPELLING_TRAPS[w]) {
+                return shuffleArray(HARD_SPELLING_TRAPS[w]).slice(0, 3);
+            }
+            const candidates = new Set();
+            for (let i = 1; i < w.length - 1; i++) {
+                if (w[i] !== w[i + 1]) {
+                    const swapped = w.slice(0, i) + w[i + 1] + w[i] + w.slice(i + 2);
+                    if (swapped !== w) candidates.add(swapped);
+                }
+            }
+            return shuffleArray(Array.from(candidates)).slice(0, 3);
+        }
+
+        // =========================================================================
+        // 4. تحدي آخر حرف
+        // =========================================================================
+        let chainPool = [];
+        let chainUsedIds = new Set();
+        let chainCurrentWord = null;
+        let chainCurrentSide = 'a';
+        let chainStep = 'SYNONYM';
+        let chainLetter = '';
+        let chainModelNum = 1;
+
+        function startChainChallenge() {
+            let s = parseInt(document.getElementById('chainStart').value, 10) || 1;
+            let e = parseInt(document.getElementById('chainEnd').value, 10) || 20;
+            s = Math.max(1, Math.min(50, s));
+            e = Math.max(1, Math.min(50, e));
+            if (s > e) { const tmp = s; s = e; e = tmp; }
+
+            chainPool = shuffleArray(WORDS_DATA.filter(w => w.id >= s && w.id <= e));
+            if (chainPool.length > 1 && chainPool[0].id === lastChainFirstId) {
+                const swapIdx = 1 + Math.floor(Math.random() * (chainPool.length - 1));
+                [chainPool[0], chainPool[swapIdx]] = [chainPool[swapIdx], chainPool[0]];
+            }
+
+            chainUsedIds = new Set();
+            chainCurrentWord = chainPool[0];
+            lastChainFirstId = chainCurrentWord.id;
+            chainCurrentSide = 'a';
+            chainUsedIds.add(chainCurrentWord.id);
+            chainStep = 'SYNONYM';
+
+            document.getElementById('chainModelBadge').textContent = `نموذج #${chainModelNum++}`;
+            document.getElementById('chainNotice').classList.add('hidden');
+            document.getElementById('chainFeedback').classList.add('hidden');
+            renderChainView();
+        }
+
+        function findWordsStartingWith(letter) {
+            const l = letter.toLowerCase();
+            return chainPool.filter(w => !chainUsedIds.has(w.id) && (w.a.charAt(0).toLowerCase() === l || w.b.charAt(0).toLowerCase() === l));
+        }
+
+        function getNextJumpWord() {
+            const remaining = chainPool.filter(w => !chainUsedIds.has(w.id));
+            if (remaining.length === 0) return null;
+            return remaining[Math.floor(Math.random() * remaining.length)];
+        }
+
+        function renderChainView() {
+            const titleEl = document.getElementById('chainStepTitle');
+            const promptEl = document.getElementById('chainPromptWord');
+            const inputEl = document.getElementById('chainInput');
+            const noWordBtn = document.getElementById('chainNoWordBtn');
+
+            inputEl.value = '';
+            setTimeout(() => inputEl.focus(), 50);
+
+            if (chainStep === 'SYNONYM') {
+                noWordBtn.classList.add('hidden');
+                const shownWord = chainCurrentSide === 'a' ? chainCurrentWord.a : chainCurrentWord.b;
+                titleEl.textContent = 'اكتب مرادف هذه الكلمة بالإنجليزي:';
+                promptEl.innerHTML = `
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-4xl sm:text-5xl font-black text-white en-font">${shownWord}</span>
+                        <button onclick="speakEnglish('${shownWord}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center">
+                            <i class="ph-fill ph-speaker-high text-xl"></i>
+                        </button>
+                    </div>
+                `;
+                inputEl.placeholder = `اكتب مرادف ${shownWord}...`;
+            } else {
+                noWordBtn.classList.remove('hidden');
+                const upper = chainLetter.toUpperCase();
+                titleEl.textContent = `آخر حرف هو (${upper}) — هات كلمة من النطاق تبدأ بحرف (${upper}):`;
+                promptEl.innerHTML = `
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-amber-500/20 border-2 border-amber-400 text-4xl font-black text-amber-300 en-font">
+                        ${upper}
+                    </div>
+                `;
+                inputEl.placeholder = `اكتب كلمة تبدأ بحرف ${upper}...`;
+            }
+        }
+
+        function checkChainInput() {
+            const val = document.getElementById('chainInput').value.trim().toLowerCase();
+            if (!val) return;
+
+            if (chainStep === 'SYNONYM') {
+                const expectedSynonym = chainCurrentSide === 'a' ? chainCurrentWord.b.toLowerCase() : chainCurrentWord.a.toLowerCase();
+                if (val === expectedSynonym) {
+                    speakEnglish(expectedSynonym);
+                    showChainMsg(true, `✅ صح! مرادفها (${expectedSynonym}) — المعنى في الملف: (${chainCurrentWord.tr})`);
+                    proceedAfterSynonym(expectedSynonym);
+                } else {
+                    showChainMsg(false, `❌ خطأ، حاول مرة أخرى!`);
+                }
+            } else if (chainStep === 'LETTER') {
+                if (val.charAt(0) !== chainLetter.toLowerCase()) {
+                    showChainMsg(false, `❌ يجب أن تبدأ الكلمة بحرف (${chainLetter.toUpperCase()})`);
+                    return;
+                }
+                const matches = findWordsStartingWith(chainLetter);
+                const matchedObj = matches.find(w => w.a.toLowerCase() === val || w.b.toLowerCase() === val);
+
+                if (matchedObj) {
+                    chainCurrentWord = matchedObj;
+                    chainCurrentSide = (matchedObj.a.toLowerCase() === val) ? 'a' : 'b';
+                    chainUsedIds.add(matchedObj.id);
+                    chainStep = 'SYNONYM';
+                    document.getElementById('chainNotice').classList.add('hidden');
+                    speakEnglish(val);
+                    showChainMsg(true, `✅ ممتاز! الآن هات مرادف (${val})`);
+                    renderChainView();
+                } else {
+                    showChainMsg(false, `❌ هذه الكلمة غير موجودة في النطاق المحدد أو تم استخدامها`);
+                }
+            }
+        }
+
+        function proceedAfterSynonym(synonymWord) {
+            const lastChar = synonymWord.slice(-1).toLowerCase();
+            const availableForLetter = findWordsStartingWith(lastChar);
+
+            if (availableForLetter.length > 0) {
+                document.getElementById('chainNotice').classList.add('hidden');
+                chainLetter = lastChar;
+                chainStep = 'LETTER';
+                renderChainView();
+            } else {
+                const nextWord = getNextJumpWord();
+                if (!nextWord) {
+                    finishChainChallenge();
+                    return;
+                }
+                const notice = document.getElementById('chainNotice');
+                notice.classList.remove('hidden');
+                notice.innerHTML = `آخر حرف من <span class="en-font font-black">${synonymWord}</span> هو <span class="en-font font-black">(${lastChar.toUpperCase()})</span> — لا توجد كلمة متبقية تبدأ به، ننتقل لكلمة جديدة: <span class="en-font font-black text-white">${nextWord.a}</span>`;
+
+                chainCurrentWord = nextWord;
+                chainCurrentSide = 'a';
+                chainUsedIds.add(nextWord.id);
+                chainStep = 'SYNONYM';
+                renderChainView();
+            }
+        }
+
+        function handleChainNoWordClick() {
+            const matches = findWordsStartingWith(chainLetter);
+            if (matches.length > 0) {
+                const sample = matches[0].a.charAt(0).toLowerCase() === chainLetter ? matches[0].a : matches[0].b;
+                showChainMsg(false, `بل توجد كلمة في النطاق تبدأ بحرف (${chainLetter.toUpperCase()}) مثل: ${sample}`);
+            } else {
+                const nextWord = getNextJumpWord();
+                if (!nextWord) {
+                    finishChainChallenge();
+                    return;
+                }
+                chainCurrentWord = nextWord;
+                chainCurrentSide = 'a';
+                chainUsedIds.add(nextWord.id);
+                chainStep = 'SYNONYM';
+                showChainMsg(true, `✅ صحيح لا يوجد! انتقلنا إلى: ${nextWord.a}`);
+                renderChainView();
+            }
+        }
+
+        function skipCurrentChainStep() {
+            if (chainStep === 'SYNONYM') {
+                const ans = chainCurrentSide === 'a' ? chainCurrentWord.b : chainCurrentWord.a;
+                document.getElementById('chainInput').value = ans;
+                checkChainInput();
+            } else {
+                const matches = findWordsStartingWith(chainLetter);
+                if (matches.length > 0) {
+                    const picked = matches[0];
+                    const wordToUse = picked.a.charAt(0).toLowerCase() === chainLetter ? picked.a : picked.b;
+                    document.getElementById('chainInput').value = wordToUse;
+                    checkChainInput();
+                }
+            }
+        }
+
+        function showChainMsg(isOk, text) {
+            const fb = document.getElementById('chainFeedback');
+            fb.classList.remove('hidden');
+            fb.className = isOk
+                ? 'p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto bg-emerald-500/15 border border-emerald-500/40 text-emerald-300'
+                : 'p-3.5 rounded-2xl text-sm font-bold max-w-md mx-auto bg-rose-500/15 border border-rose-500/40 text-rose-300';
+            fb.textContent = text;
+        }
+
+        function finishChainChallenge() {
+            document.getElementById('chainStepTitle').textContent = '🎉 أحسنت! أنهيت جميع كلمات هذا النموذج';
+            document.getElementById('chainPromptWord').innerHTML = `
+                <button onclick="startChainChallenge()" class="theme-btn px-8 py-3.5 rounded-2xl font-black text-white mt-2">
+                    بدء نموذج جديد مختلف 🔄
+                </button>
+            `;
+        }
+
+        document.getElementById('chainInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkChainInput();
+        });
+
+        // =========================================================================
+        // 5. منظومة الاختبارات المتكاملة (إزالة الجمل تماماً من المستوى العادي/المبتدئ)
+        // =========================================================================
+        let quizSettings = {
+            category: 'comprehensive',
+            level: 'standard',
+            standardDir: 'mixed',
+            proDir: 'mixed',
+            style: 'choices',
+            start: 1,
+            end: 10
+        };
+
+        let quizItems = [];
+        let qIdx = 0;
+        let qRight = 0;
+        let qWrong = 0;
+        let qLocked = false;
+        let currentMistakesLog = [];
+
+        function openSetupWithPreset(category) {
+            openPage('quiz-setup');
+            setQuizCategory(category);
+        }
+
+        function setQuizCategory(cat) {
+            quizSettings.category = cat;
+            const categories = [
+                { id: 'comprehensive', label: '🏆 الاختبار الشامل (كله خيارات)' },
+                { id: 'vocab', label: '🎯 اختبار الكلمات والترجمة' },
+                { id: 'sentences', label: '📝 اختبار الجمل (إكمال الفراغ)' },
+                { id: 'spelling', label: '🔤 اختبار السبلنق (الإملاء الذكي)' }
+            ];
+
+            categories.forEach(c => {
+                const btn = document.getElementById('cat-' + c.id);
+                if (c.id === cat) {
+                    btn.className = 'p-2.5 rounded-xl border-2 border-indigo-400 bg-indigo-500/20 text-white text-xs font-black transition';
+                    document.getElementById('setupPageTitle').textContent = c.label;
+                } else {
+                    btn.className = 'p-2.5 rounded-xl border-2 border-slate-800 bg-slate-900/70 text-slate-400 hover:text-white text-xs font-black transition';
+                }
+            });
+
+            const lvlSection = document.getElementById('setupLevelSection');
+            const stdDirBox = document.getElementById('standardDirectionBox');
+            const proDirBox = document.getElementById('proDirectionBox');
+            const styleSection = document.getElementById('setupStyleSection');
+
+            if (cat === 'sentences') {
+                lvlSection.classList.add('hidden');
+                stdDirBox.classList.add('hidden');
+                proDirBox.classList.add('hidden');
+                styleSection.classList.add('hidden');
+            } else if (cat === 'spelling') {
+                lvlSection.classList.remove('hidden');
+                stdDirBox.classList.add('hidden');
+                proDirBox.classList.add('hidden');
+                styleSection.classList.add('hidden');
+                document.getElementById('desc-lvl-standard').textContent = 'يعطيك الترجمة وتختار السبلنق الصحيح من العمود A فقط (بدون جمل)';
+                document.getElementById('desc-lvl-pro').textContent = 'العمود A و B والترجمة (مثل start ⬅ commence أو commnce)';
+            } else if (cat === 'comprehensive') {
+                lvlSection.classList.remove('hidden');
+                stdDirBox.classList.add('hidden');
+                proDirBox.classList.add('hidden');
+                styleSection.classList.add('hidden');
+                document.getElementById('desc-lvl-standard').textContent = 'شامل العادي (بدون جمل): سبلنق العمود A + ترجمة (عربي ⇄ إنجليزي)';
+                document.getElementById('desc-lvl-pro').textContent = 'شامل المحترف: الجمل + سبلنق A و B + المرادفات';
+            } else {
+                lvlSection.classList.remove('hidden');
+                styleSection.classList.remove('hidden');
+                document.getElementById('desc-lvl-standard').textContent = 'العمود A والترجمة فقط (بدون جمل وبدون العمود B)';
+                document.getElementById('desc-lvl-pro').textContent = 'اختبار المرادفات (العمود A ⇄ العمود B)';
+                if (quizSettings.level === 'standard') {
+                    stdDirBox.classList.remove('hidden');
+                    proDirBox.classList.add('hidden');
+                } else {
+                    stdDirBox.classList.add('hidden');
+                    proDirBox.classList.remove('hidden');
+                }
+            }
+        }
+
+        function setSetupLevel(lvl) {
+            quizSettings.level = lvl;
+            const stdBtn = document.getElementById('btn-lvl-standard');
+            const proBtn = document.getElementById('btn-lvl-pro');
+
+            if (lvl === 'standard') {
+                stdBtn.className = 'p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/15 text-right transition';
+                proBtn.className = 'p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition';
+            } else {
+                proBtn.className = 'p-3.5 rounded-2xl border-2 border-amber-500 bg-amber-500/15 text-right transition';
+                stdBtn.className = 'p-3.5 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-right transition';
+            }
+            setQuizCategory(quizSettings.category);
+        }
+
+        function setStandardDir(dir) {
+            quizSettings.standardDir = dir;
+            ['en_ar', 'ar_en', 'mixed'].forEach(d => {
+                const btn = document.getElementById('btn-stddir-' + d);
+                btn.className = (d === dir)
+                    ? 'p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-500/15 text-center font-bold text-xs text-white'
+                    : 'p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white';
+            });
+        }
+
+        function setProDir(dir) {
+            quizSettings.proDir = dir;
+            ['ab', 'ba', 'mixed'].forEach(d => {
+                const btn = document.getElementById('btn-dir-' + d);
+                btn.className = (d === dir)
+                    ? 'p-2.5 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-center font-bold text-xs text-white'
+                    : 'p-2.5 rounded-xl border-2 border-slate-700 bg-slate-800/60 text-center font-bold text-xs text-white';
+            });
+        }
+
+        function setSetupStyle(st) {
+            quizSettings.style = st;
+            document.getElementById('btn-style-choices').className = (st === 'choices')
+                ? 'p-3 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white'
+                : 'p-3 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white';
+            document.getElementById('btn-style-written').className = (st === 'written')
+                ? 'p-3 rounded-2xl border-2 border-indigo-500 bg-indigo-500/15 text-center font-black text-sm text-white'
+                : 'p-3 rounded-2xl border-2 border-slate-700 bg-slate-800/60 text-center font-black text-sm text-white';
+        }
+
+        function setQuizRange(s, e) {
+            document.getElementById('quizStartInput').value = s;
+            document.getElementById('quizEndInput').value = e;
+        }
+
+        function createQuestionObject(word, qType) {
+            const isWritten = (quizSettings.category === 'vocab' && quizSettings.style === 'written');
+
+            if (qType === 'sentence') {
+                const regex = new RegExp(`\\b${word.sentenceWord}\\b`, 'i');
+                const blankedSentence = word.sentence.replace(regex, ' ( ______ ) ');
+                const otherSentenceWords = shuffleArray(
+                    WORDS_DATA.filter(w => w.id !== word.id && w.sentenceWord.toLowerCase() !== word.sentenceWord.toLowerCase())
+                ).slice(0, 3).map(w => w.sentenceWord);
+
+                return {
+                    word,
+                    qType: 'sentence',
+                    isStandardQuestion: false,
+                    typeLabel: '📝 سؤال جمل (إكمال الفراغ)',
+                    instruction: 'اختر الكلمة الصحيحة من كلمات جمل الملف لملء الفراغ:',
+                    promptText: blankedSentence,
+                    promptSub: null,
+                    isEnglishPrompt: true,
+                    speakText: null,
+                    answerFormat: 'choices',
+                    correctAnswer: word.sentenceWord,
+                    options: shuffleArray([word.sentenceWord, ...otherSentenceWords]),
+                    optionsAreEnglish: true
+                };
+            }
+
+            if (qType.startsWith('spell_')) {
+                let targetSpellingWord = word.a;
+                let inst = '';
+                let promptMain = '';
+                let isEnPrompt = false;
+                let isStd = (qType === 'spell_std');
+
+                if (qType === 'spell_std') {
+                    targetSpellingWord = word.a;
+                    inst = 'اختر السبلنق (الإملاء) الصحيح في العمود (A) لهذا المعنى:';
+                    promptMain = word.tr;
+                    isEnPrompt = false;
+                } else if (qType === 'spell_pro_ab') {
+                    targetSpellingWord = word.b;
+                    inst = `اختر السبلنق الصحيح لمرادف كلمة (${word.a}) في العمود (B):`;
+                    promptMain = word.a;
+                    isEnPrompt = true;
+                } else if (qType === 'spell_pro_ba') {
+                    targetSpellingWord = word.a;
+                    inst = `اختر السبلنق الصحيح لمرادف كلمة (${word.b}) في العمود (A):`;
+                    promptMain = word.b;
+                    isEnPrompt = true;
+                } else {
+                    targetSpellingWord = Math.random() < 0.7 ? word.b : word.a;
+                    const colName = (targetSpellingWord === word.b) ? 'B' : 'A';
+                    inst = `اختر السبلنق الصحيح في العمود (${colName}) لكلمة بمعنى:`;
+                    promptMain = word.tr;
+                    isEnPrompt = false;
+                }
+
+                const misspellings = generateMisspellings(targetSpellingWord);
+                return {
+                    word,
+                    qType,
+                    isStandardQuestion: isStd,
+                    typeLabel: '🔤 سؤال سبلنق (إملاء)',
+                    instruction: inst,
+                    promptText: promptMain,
+                    promptSub: null,
+                    isEnglishPrompt: isEnPrompt,
+                    speakText: isEnPrompt ? promptMain : null,
+                    answerFormat: 'choices',
+                    correctAnswer: targetSpellingWord,
+                    options: shuffleArray([targetSpellingWord, ...misspellings]),
+                    optionsAreEnglish: true
+                };
+            }
+
+            if (qType === 'vocab_en_ar') {
+                const distractors = getDistractors(word, 'tr', 3).map(d => d.tr);
+                return {
+                    word,
+                    qType,
+                    isStandardQuestion: true,
+                    typeLabel: '🎯 معاني وترجمة (إنجليزي ⬅ عربي)',
+                    instruction: isWritten ? 'اكتب معنى هذه الكلمة بالعربي (يقبل المعنى القريب):' : 'اختر الترجمة الصحيحة لهذه الكلمة:',
+                    promptText: word.a,
+                    promptSub: null,
+                    isEnglishPrompt: true,
+                    speakText: word.a,
+                    answerFormat: isWritten ? 'written' : 'choices',
+                    correctAnswer: word.tr,
+                    options: shuffleArray([word.tr, ...distractors]),
+                    optionsAreEnglish: false
+                };
+            }
+
+            if (qType === 'vocab_ar_en') {
+                const distractors = getDistractors(word, 'a', 3).map(d => d.a);
+                return {
+                    word,
+                    qType,
+                    isStandardQuestion: true,
+                    typeLabel: '🎯 معاني وترجمة (عربي ⬅ إنجليزي)',
+                    instruction: isWritten ? 'اكتب الكلمة الإنجليزية من العمود (A) لهذا المعنى:' : 'اختر الكلمة الإنجليزية الصحيحة من العمود (A) لهذا المعنى:',
+                    promptText: word.tr,
+                    promptSub: null,
+                    isEnglishPrompt: false,
+                    speakText: null,
+                    answerFormat: isWritten ? 'written' : 'choices',
+                    correctAnswer: word.a,
+                    options: shuffleArray([word.a, ...distractors]),
+                    optionsAreEnglish: true
+                };
+            }
+
+            if (qType === 'vocab_ab') {
+                const distractors = getDistractors(word, 'b', 3).map(d => d.b);
+                return {
+                    word,
+                    qType,
+                    isStandardQuestion: false,
+                    typeLabel: '⚡ مرادفات المحترف (A ⬅ B)',
+                    instruction: isWritten ? 'اكتب المرادف في العمود (B):' : 'اختر المرادف الصحيح في العمود (B):',
+                    promptText: word.a,
+                    promptSub: null,
+                    isEnglishPrompt: true,
+                    speakText: word.a,
+                    answerFormat: isWritten ? 'written' : 'choices',
+                    correctAnswer: word.b,
+                    options: shuffleArray([word.b, ...distractors]),
+                    optionsAreEnglish: true
+                };
+            }
+
+            const distractors = getDistractors(word, 'a', 3).map(d => d.a);
+            return {
+                word,
+                qType: 'vocab_ba',
+                isStandardQuestion: false,
+                typeLabel: '⚡ مرادفات المحترف (B ⬅ A)',
+                instruction: isWritten ? 'اكتب المرادف في العمود (A):' : 'اختر المرادف الصحيح في العمود (A):',
+                promptText: word.b,
+                promptSub: null,
+                isEnglishPrompt: true,
+                speakText: word.b,
+                answerFormat: isWritten ? 'written' : 'choices',
+                correctAnswer: word.a,
+                options: shuffleArray([word.a, ...distractors]),
+                optionsAreEnglish: true
+            };
+        }
+
+        function launchQuiz() {
+            let s = parseInt(document.getElementById('quizStartInput').value, 10) || 1;
+            let e = parseInt(document.getElementById('quizEndInput').value, 10) || 10;
+            s = Math.max(1, Math.min(50, s));
+            e = Math.max(1, Math.min(50, e));
+            if (s > e) { const tmp = s; s = e; e = tmp; }
+
+            quizSettings.start = s;
+            quizSettings.end = e;
+
+            let pool = shuffleArray(WORDS_DATA.filter(w => w.id >= s && w.id <= e));
+            let builtItems = [];
+
+            if (quizSettings.category === 'sentences') {
+                builtItems = pool.map(w => createQuestionObject(w, 'sentence'));
+            } else if (quizSettings.category === 'spelling') {
+                builtItems = pool.map((w, i) => {
+                    if (quizSettings.level === 'standard') {
+                        return createQuestionObject(w, 'spell_std');
+                    } else {
+                        const proModes = ['spell_pro_ab', 'spell_pro_ba', 'spell_pro_tr'];
+                        const pick = proModes[(i + Math.floor(Math.random() * 3)) % proModes.length];
+                        return createQuestionObject(w, pick);
+                    }
+                });
+            } else if (quizSettings.category === 'comprehensive') {
+                builtItems = pool.map((w, i) => {
+                    if (quizSettings.level === 'standard') {
+                        // تم إزالة الجمل نهائياً من المستوى العادي (المبتدئ) في الاختبار الشامل
+                        const stdMix = ['spell_std', 'vocab_en_ar', 'vocab_ar_en'];
+                        const pick = stdMix[(i + globalModelNumber) % stdMix.length];
+                        return createQuestionObject(w, pick);
+                    } else {
+                        const proMix = ['sentence', 'spell_pro_ab', 'spell_pro_tr', 'vocab_ab', 'vocab_ba'];
+                        const pick = proMix[(i + globalModelNumber) % proMix.length];
+                        return createQuestionObject(w, pick);
+                    }
+                });
+                builtItems = shuffleArray(builtItems);
+            } else {
+                builtItems = pool.map((w, i) => {
+                    if (quizSettings.level === 'standard') {
+                        let d = quizSettings.standardDir;
+                        if (d === 'mixed') d = ((i + globalModelNumber) % 2 === 0) ? 'en_ar' : 'ar_en';
+                        return createQuestionObject(w, d === 'en_ar' ? 'vocab_en_ar' : 'vocab_ar_en');
+                    } else {
+                        let d = quizSettings.proDir;
+                        if (d === 'mixed') d = ((i + globalModelNumber) % 2 === 0) ? 'ab' : 'ba';
+                        return createQuestionObject(w, d === 'ab' ? 'vocab_ab' : 'vocab_ba');
+                    }
+                });
+            }
+
+            if (builtItems.length > 1) {
+                const firstKey = `${builtItems[0].word.id}_${builtItems[0].qType}`;
+                if (firstKey === lastQuizFirstKey) {
+                    const swapIndex = 1 + Math.floor(Math.random() * (builtItems.length - 1));
+                    [builtItems[0], builtItems[swapIndex]] = [builtItems[swapIndex], builtItems[0]];
+                }
+                lastQuizFirstKey = `${builtItems[0].word.id}_${builtItems[0].qType}`;
+            }
+
+            quizItems = builtItems;
+            startQuizSession(`نموذج #${globalModelNumber++}`);
+        }
+
+        function launchMistakesQuiz() {
+            if (currentMistakesLog.length === 0) return;
+            quizItems = shuffleArray(currentMistakesLog.map(m => createQuestionObject(m.item.word, m.item.qType)));
+            startQuizSession(`مراجعة الأخطاء (${quizItems.length})`);
+        }
+
+        function startQuizSession(modelLabel) {
+            qIdx = 0;
+            qRight = 0;
+            qWrong = 0;
+            currentMistakesLog = [];
+
+            document.getElementById('qModelBadge').textContent = modelLabel;
+            openPage('quiz-active');
+            document.getElementById('quizQuestionArea').classList.remove('hidden');
+            document.getElementById('quizSummaryArea').classList.add('hidden');
+            renderCurrentQuizItem();
+        }
+
+        function renderCurrentQuizItem() {
+            qLocked = false;
+            const current = quizItems[qIdx];
+
+            document.getElementById('qRightCount').textContent = qRight;
+            document.getElementById('qWrongCount').textContent = qWrong;
+            document.getElementById('qProgressBadge').textContent = `${qIdx + 1} / ${quizItems.length}`;
+
+            document.getElementById('qTypePill').textContent = current.typeLabel;
+            document.getElementById('qInstruction').textContent = current.instruction;
+            document.getElementById('qSimpleFeedback').classList.add('hidden');
+            document.getElementById('qNextBtn').classList.add('hidden');
+
+            const wordEl = document.getElementById('qWordDisplay');
+            const writtenBox = document.getElementById('qWrittenBox');
+            const choicesBox = document.getElementById('qChoicesBox');
+            const inp = document.getElementById('qWrittenInput');
+            inp.disabled = false;
+            document.getElementById('qSubmitBtn').disabled = false;
+
+            if (current.qType === 'sentence') {
+                wordEl.innerHTML = `
+                    <div dir="ltr" class="p-4 sm:p-5 rounded-2xl bg-slate-950/90 border border-slate-800 text-lg sm:text-2xl font-extrabold text-white en-font leading-relaxed max-w-xl mx-auto">
+                        ${current.promptText.replace('( ______ )', '<span class="px-3 py-0.5 mx-1 rounded-xl bg-indigo-500/20 border border-indigo-400 text-indigo-300">______</span>')}
+                    </div>
+                `;
+            } else {
+                const fontClass = current.isEnglishPrompt ? 'en-font text-4xl sm:text-5xl text-white' : 'text-3xl sm:text-4xl text-emerald-300';
+                const speakerHtml = current.speakText ? `
+                    <button onclick="speakEnglish('${current.speakText}')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-speaker-high text-xl"></i>
+                    </button>
+                ` : '';
+
+                wordEl.innerHTML = `
+                    <div class="inline-flex items-center justify-center gap-3 px-4 py-2">
+                        <span class="font-black ${fontClass}">${current.promptText}</span>
+                        ${speakerHtml}
+                    </div>
+                `;
+            }
+
+            if (current.answerFormat === 'written') {
+                choicesBox.classList.add('hidden');
+                writtenBox.classList.remove('hidden');
+                inp.value = '';
+                if (current.qType === 'vocab_en_ar') {
+                    inp.dir = 'rtl';
+                    inp.placeholder = 'اكتب المعنى بالعربي (يقبل المعنى القريب)...';
+                } else {
+                    inp.dir = 'ltr';
+                    inp.placeholder = 'اكتب الكلمة بالإنجليزي...';
+                }
+                setTimeout(() => inp.focus(), 50);
+            } else {
+                writtenBox.classList.add('hidden');
+                choicesBox.classList.remove('hidden');
+
+                choicesBox.innerHTML = current.options.map((opt, idx) => `
+                    <button onclick="handleChoiceQuiz(${idx}, this)" class="q-opt choice-btn p-4 rounded-2xl font-extrabold text-base sm:text-lg text-white ${current.optionsAreEnglish ? 'en-font' : ''}">
+                        ${opt}
+                    </button>
+                `).join('');
+            }
+        }
+
+        function normalizeArabicText(str) {
+            return str
+                .trim()
+                .replace(/[أإآ]/g, 'ا')
+                .replace(/ة/g, 'ه')
+                .replace(/ى/g, 'ي')
+                .replace(/ؤ/g, 'و')
+                .replace(/ئ/g, 'ي')
+                .replace(/[\u064B-\u065F]/g, '')
+                .replace(/[^\u0621-\u064A\s]/g, ' ')
+                .replace(/\b(ال|ب|ل|في|من|على|الى|عن)\b/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function editDistance(a, b) {
+            const dp = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+            for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+            for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    dp[i][j] = a[i - 1] === b[j - 1]
+                        ? dp[i - 1][j - 1]
+                        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+                }
+            }
+            return dp[a.length][b.length];
+        }
+
+        function isArabicMeaningCorrect(inputVal, wordObj) {
+            const normUser = normalizeArabicText(inputVal);
+            if (!normUser || normUser.length < 2) return false;
+
+            const allAccepted = [wordObj.tr, ...wordObj.acceptAr];
+            for (const candidate of allAccepted) {
+                const normCand = normalizeArabicText(candidate);
+                if (!normCand) continue;
+                if (normUser === normCand || normCand.includes(normUser) || normUser.includes(normCand)) {
+                    return true;
+                }
+                if (normUser.length >= 4 && normCand.length >= 4 && editDistance(normUser, normCand) <= 1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function submitWrittenQuiz() {
+            if (qLocked) return;
+            const inp = document.getElementById('qWrittenInput');
+            const val = inp.value.trim();
+            if (!val) return;
+
+            const current = quizItems[qIdx];
+            const w = current.word;
+            let isCorrect = false;
+
+            if (current.qType === 'vocab_en_ar') {
+                isCorrect = isArabicMeaningCorrect(val, w);
+            } else {
+                isCorrect = (val.toLowerCase() === current.correctAnswer.toLowerCase());
+            }
+
+            qLocked = true;
+            inp.disabled = true;
+            document.getElementById('qSubmitBtn').disabled = true;
+            finalizeQuizTurn(isCorrect, val, current);
+        }
+
+        function handleChoiceQuiz(optionIdx, btnEl) {
+            if (qLocked) return;
+            qLocked = true;
+
+            const current = quizItems[qIdx];
+            const chosenValue = current.options[optionIdx];
+            const isCorrect = (chosenValue.toLowerCase() === current.correctAnswer.toLowerCase());
+
+            const allBtns = document.querySelectorAll('.q-opt');
+            allBtns.forEach((b, idx) => {
+                b.disabled = true;
+                if (current.options[idx].toLowerCase() === current.correctAnswer.toLowerCase()) {
+                    b.classList.add('choice-correct');
+                }
+            });
+
+            if (!isCorrect) {
+                btnEl.classList.add('choice-wrong');
+            }
+
+            finalizeQuizTurn(isCorrect, chosenValue, current);
+        }
+
+        function finalizeQuizTurn(isCorrect, userAnswer, current) {
+            const w = current.word;
+            if (isCorrect) {
+                qRight++;
+            } else {
+                qWrong++;
+                currentMistakesLog.push({
+                    item: current,
+                    userAnswer: userAnswer
+                });
+            }
+
+            document.getElementById('qRightCount').textContent = qRight;
+            document.getElementById('qWrongCount').textContent = qWrong;
+
+            if (current.qType === 'sentence') {
+                const regex = new RegExp(`\\b${w.sentenceWord}\\b`, 'i');
+                document.getElementById('qWordDisplay').innerHTML = `
+                    <div dir="ltr" class="p-4 sm:p-5 rounded-2xl bg-slate-950/90 border border-slate-800 text-lg sm:text-2xl font-extrabold text-white en-font leading-relaxed max-w-xl mx-auto">
+                        ${w.sentence.replace(regex, `<span class="px-3 py-0.5 mx-1 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300">${w.sentenceWord}</span>`)}
+                    </div>
+                `;
+                speakEnglish(w.sentence);
+            } else if (current.optionsAreEnglish) {
+                speakEnglish(current.correctAnswer);
+            }
+
+            const fb = document.getElementById('qSimpleFeedback');
+            fb.classList.remove('hidden');
+            fb.className = isCorrect
+                ? 'p-4 rounded-2xl font-bold text-sm sm:text-base max-w-lg mx-auto bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 space-y-1'
+                : 'p-4 rounded-2xl font-bold text-sm sm:text-base max-w-lg mx-auto bg-rose-500/15 border border-rose-500/40 text-rose-300 space-y-1';
+
+            // في المستوى العادي (المبتدئ) نعرض فقط العمود A والترجمة بدون العمود B وبدون جمل
+            const fileNoteHtml = current.isStandardQuestion
+                ? `<span class="en-font font-black text-white">${w.a}</span> = <span class="text-emerald-300 font-black">${w.tr}</span>`
+                : `<span class="en-font font-black text-white">${w.a}</span> = <span class="text-emerald-300 font-black">${w.tr}</span> = <span class="en-font font-black text-indigo-300">${w.b}</span>`;
+
+            fb.innerHTML = `
+                <div class="text-base font-black">
+                    ${isCorrect ? `✅ إجابة صحيحة! (${current.correctAnswer})` : `❌ إجابة خاطئة — الصحيح: (${current.correctAnswer})`}
+                </div>
+                <div class="text-xs sm:text-sm text-slate-200 bg-slate-950/60 px-3 py-2 rounded-xl border border-slate-800 mt-1">
+                    📄 <span class="text-amber-300 font-black">المكتوب في الملف نصاً:</span>
+                    ${fileNoteHtml}
+                </div>
+            `;
+
+            const nextBtn = document.getElementById('qNextBtn');
+            nextBtn.classList.remove('hidden');
+            nextBtn.textContent = (qIdx + 1 < quizItems.length) ? 'السؤال التالي ⬅' : 'عرض النتيجة ومراجعة الأخطاء 🏆';
+        }
+
+        function goNextQuizItem() {
+            qIdx++;
+            if (qIdx < quizItems.length) {
+                renderCurrentQuizItem();
+            } else {
+                showFinalSummaryAndMistakes();
+            }
+        }
+
+        function showFinalSummaryAndMistakes() {
+            document.getElementById('quizQuestionArea').classList.add('hidden');
+            document.getElementById('quizSummaryArea').classList.remove('hidden');
+
+            const total = quizItems.length;
+            const percent = Math.round((qRight / total) * 100);
+            document.getElementById('qFinalScoreText').textContent =
+                `النتيجة: ${qRight} صح من أصل ${total} (${percent}%)`;
+            document.getElementById('qModelCompletedNote').textContent =
+                `في حال الضغط على "إنشاء نموذج جديد مختلف" سيتم توليد ترتيب وأسئلة جديدة تماماً`;
+
+            const retryBtn = document.getElementById('retryMistakesBtn');
+            const headerTitle = document.getElementById('mistakesHeaderTitle');
+            const listContainer = document.getElementById('mistakesListContainer');
+
+            if (currentMistakesLog.length === 0) {
+                retryBtn.classList.add('hidden');
+                headerTitle.className = 'text-base font-black text-emerald-400 text-center';
+                headerTitle.textContent = '🎉 ما شاء الله! إجاباتك كلها صحيحة بدون أي خطأ!';
+                listContainer.innerHTML = '';
+            } else {
+                retryBtn.classList.remove('hidden');
+                retryBtn.textContent = `🎯 اختبرني في أخطائي فقط (${currentMistakesLog.length})`;
+                headerTitle.className = 'text-base font-black text-rose-400 text-right';
+                headerTitle.textContent = `📌 مراجعة الأخطاء (أخطأت في ${currentMistakesLog.length} أسئلة):`;
+
+                listContainer.innerHTML = currentMistakesLog.map((m, idx) => {
+                    const w = m.item.word;
+                    const isStd = m.item.isStandardQuestion;
+                    // في المستوى العادي لا نعرض الجملة ولا العمود B في مراجعة الأخطاء
+                    const detailsBoxHtml = isStd
+                        ? `<div class="text-xs text-slate-300 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                                📄 <span class="text-slate-400">في الملف:</span>
+                                <span class="en-font font-bold text-white">${w.a}</span> = <span class="text-emerald-300 font-bold">${w.tr}</span>
+                           </div>`
+                        : `<div class="text-xs text-slate-300 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                                📄 <span class="text-slate-400">في الملف:</span>
+                                <span class="en-font font-bold text-white">${w.a}</span> (${w.tr}) =
+                                <span class="en-font font-bold text-indigo-300">${w.b}</span>
+                                <div dir="ltr" class="en-font text-slate-400 mt-1 text-left">${w.sentence}</div>
+                           </div>`;
+
+                    return `
+                        <div class="p-4 rounded-2xl bg-slate-900/95 border border-rose-500/30 text-right space-y-2">
+                            <div class="flex items-center justify-between text-xs text-slate-400 font-bold">
+                                <span>${idx + 1}. ${m.item.typeLabel}</span>
+                                <span class="en-font text-slate-500">#${w.id}</span>
+                            </div>
+                            <div class="text-sm sm:text-base font-black text-white">
+                                السؤال: <span class="${m.item.isEnglishPrompt ? 'en-font text-amber-300' : 'text-amber-300'}">${m.item.promptText}</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-bold">
+                                <span class="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                    ❌ إجابتك: ${m.userAnswer}
+                                </span>
+                                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                    ✅ الإجابة الصحيحة: ${m.item.correctAnswer}
+                                </span>
+                            </div>
+                            ${detailsBoxHtml}
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        document.getElementById('qWrittenInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                if (!qLocked) submitWrittenQuiz();
+                else goNextQuizItem();
+            }
+        });
+
+        // =========================================================================
+        // 6. جدول الكلمات والناطق
+        // =========================================================================
+        let hiddenCols = { a: false, tr: false, b: false };
+
+        function toggleDictCol(col) {
+            hiddenCols[col] = !hiddenCols[col];
+            const btn = document.getElementById('toggle-col-' + col);
+            if (hiddenCols[col]) {
+                btn.classList.add('bg-amber-500/20', 'border-amber-400', 'text-amber-300');
+            } else {
+                btn.classList.remove('bg-amber-500/20', 'border-amber-400', 'text-amber-300');
+            }
+            renderDictionary();
+        }
+
+        function renderDictionary() {
+            const q = (document.getElementById('dictSearchInput').value || '').trim().toLowerCase();
+            const container = document.getElementById('dictListContainer');
+
+            const filtered = WORDS_DATA.filter(w => {
+                if (!q) return true;
+                return String(w.id) === q || w.a.includes(q) || w.b.includes(q) || w.tr.includes(q) || w.sentence.toLowerCase().includes(q);
+            });
+
+            container.innerHTML = filtered.map(w => `
+                <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-3 space-y-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 items-center gap-2">
+                        <div class="sm:col-span-1 text-center">
+                            <span class="px-2 py-1 rounded-lg bg-slate-800 text-xs font-black text-slate-400 en-font">#${w.id}</span>
+                        </div>
+
+                        <div class="sm:col-span-3 flex items-center justify-between bg-slate-950/70 px-3 py-2 rounded-xl">
+                            <span onclick="this.classList.remove('blur-sm')" class="font-black text-white en-font text-base cursor-pointer ${hiddenCols.a ? 'blur-sm select-none' : ''}">${w.a}</span>
+                            <button onclick="speakEnglish('${w.a}', 0.9)" class="text-sky-400 hover:text-sky-300">
+                                <i class="ph-fill ph-speaker-high text-lg"></i>
+                            </button>
+                        </div>
+
+                        <div class="sm:col-span-4 bg-slate-950/70 px-3 py-2 rounded-xl text-center">
+                            <span onclick="this.classList.remove('blur-sm')" class="font-bold text-emerald-400 text-sm cursor-pointer ${hiddenCols.tr ? 'blur-sm select-none' : ''}">${w.tr}</span>
+                        </div>
+
+                        <div class="sm:col-span-4 flex items-center justify-between bg-slate-950/70 px-3 py-2 rounded-xl">
+                            <span onclick="this.classList.remove('blur-sm')" class="font-black text-indigo-300 en-font text-base cursor-pointer ${hiddenCols.b ? 'blur-sm select-none' : ''}">${w.b}</span>
+                            <div class="flex items-center gap-1">
+                                <button onclick="speakEnglish('${w.b}', 0.9)" class="px-2 py-0.5 rounded bg-slate-800 text-sky-400 text-xs font-bold">🔊</button>
+                                <button onclick="speakEnglish('${w.b}', 0.55)" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold" title="نطق بطيء">🐢</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div dir="ltr" class="flex items-center justify-between bg-slate-950/40 px-3 py-1.5 rounded-xl text-xs text-slate-300 en-font">
+                        <span>${w.sentence}</span>
+                        <button onclick="speakEnglish('${w.sentence.replace(/'/g, "\\'")}', 0.9)" class="text-sky-400 hover:text-sky-300 ml-2 shrink-0">
+                            <i class="ph-fill ph-speaker-high"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function getDistractors(correctWord, field, count) {
+            const others = WORDS_DATA.filter(w => w.id !== correctWord.id && w[field] !== correctWord[field]);
+            return shuffleArray(others).slice(0, count);
+        }
+    </script>
+</body>
+</html>
